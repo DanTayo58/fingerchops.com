@@ -1,0 +1,176 @@
+[2026-04-07 13:10:12] === SCRIPT STARTED ===
+[2026-04-07 13:10:12] User: Happiness Eke, Level: 50
+[2026-04-07 13:10:17] === SCRIPT STARTED ===
+[2026-04-07 13:10:17] User: Happiness Eke, Level: 50
+[2026-04-07 13:10:17] AJAX request received: Array
+(
+    [ajax] => 1
+    [action] => get_order_items
+    [order_id] => 34
+    [csrf_token] => 38adba394696d55d424cfc3704324e997cdb81ee0e7ff5b4bfd7f8978d1c84aa
+)
+
+[2026-04-07 13:10:17] CSRF validation passed
+[2026-04-07 13:10:17] Action: get_order_items
+[2026-04-07 13:10:17] Getting order items for order_id: 34
+[2026-04-07 13:10:17] Found 2 items
+[2026-04-07 13:10:27] === SCRIPT STARTED ===
+[2026-04-07 13:10:27] User: Happiness Eke, Level: 50
+[2026-04-07 13:10:27] AJAX request received: Array
+(
+    [ajax] => 1
+    [action] => create_return
+    [csrf_token] => 38adba394696d55d424cfc3704324e997cdb81ee0e7ff5b4bfd7f8978d1c84aa
+    [order_id] => 34
+    [return_type] => change_item
+    [return_items] => [{"original_order_item_id":40,"original_product_id":8,"original_quantity":15,"original_unit_price":500,"original_subtotal":7500,"return_quantity":1,"return_subtotal":500,"action_type":"change_item","reason":"bad"}]
+    [notes] => 
+)
+
+[2026-04-07 13:10:27] CSRF validation passed
+[2026-04-07 13:10:27] Action: create_return
+[2026-04-07 13:10:27] === PROCESSING CREATE RETURN ===
+[2026-04-07 13:10:27] Order ID: 34
+[2026-04-07 13:10:27] Return Type: change_item
+[2026-04-07 13:10:27] Notes: 
+[2026-04-07 13:10:27] Return Items:: Array
+(
+    [0] => Array
+        (
+            [original_order_item_id] => 40
+            [original_product_id] => 8
+            [original_quantity] => 15
+            [original_unit_price] => 500
+            [original_subtotal] => 7500
+            [return_quantity] => 1
+            [return_subtotal] => 500
+            [action_type] => change_item
+            [reason] => bad
+        )
+
+)
+
+[2026-04-07 13:10:27] Customer ID: 26
+[2026-04-07 13:10:27] Return Number: RET-20260407-3D5FAA
+[2026-04-07 13:10:27] Total Refund: 500
+[2026-04-07 13:10:27] Checking order_returns table structure...
+[2026-04-07 13:10:27] order_returns columns:: Array
+(
+    [0] => id
+    [1] => return_number
+    [2] => order_id
+    [3] => customer_id
+    [4] => return_type
+    [5] => status
+    [6] => total_refund_amount
+    [7] => total_additional_payment
+    [8] => notes
+    [9] => created_by
+    [10] => created_at
+    [11] => processed_at
+    [12] => processed_by
+)
+
+[2026-04-07 13:10:27] Checking return_items table structure...
+[2026-04-07 13:10:27] return_items columns:: Array
+(
+    [0] => id
+    [1] => return_id
+    [2] => original_order_item_id
+    [3] => original_product_id
+    [4] => original_quantity
+    [5] => original_unit_price
+    [6] => original_subtotal
+    [7] => new_product_id
+    [8] => new_quantity
+    [9] => new_unit_price
+    [10] => new_subtotal
+    [11] => price_difference
+    [12] => action_type
+    [13] => reason
+    [14] => inventory_action
+)
+
+[2026-04-07 13:10:27] SQL: INSERT INTO order_returns (order_id, customer_id, return_number, return_type, status, total_refund_amount, total_additional_payment, created_by, notes, created_at) 
+                    VALUES (?, ?, ?, ?, 'pending', ?, 0, ?, ?, NOW())
+[2026-04-07 13:10:27] Parameters: order_id=34, customer_id=26, return_number=RET-20260407-3D5FAA, return_type=change_item, total_refund=500, created_by=27, notes=
+[2026-04-07 13:10:31] === SCRIPT STARTED ===
+[2026-04-07 13:10:31] User: Happiness Eke, Level: 50
+[2026-04-07 13:10:31] AJAX request received: Array
+(
+    [ajax] => 1
+    [action] => create_return
+    [csrf_token] => 38adba394696d55d424cfc3704324e997cdb81ee0e7ff5b4bfd7f8978d1c84aa
+    [order_id] => 34
+    [return_type] => change_item
+    [return_items] => [{"original_order_item_id":40,"original_product_id":8,"original_quantity":15,"original_unit_price":500,"original_subtotal":7500,"return_quantity":1,"return_subtotal":500,"action_type":"change_item","reason":"bad"}]
+    [notes] => 
+)
+
+[2026-04-07 13:10:31] CSRF validation passed
+[2026-04-07 13:10:31] Action: create_return
+[2026-04-07 13:10:31] === PROCESSING CREATE RETURN ===
+[2026-04-07 13:10:31] Order ID: 34
+[2026-04-07 13:10:31] Return Type: change_item
+[2026-04-07 13:10:31] Notes: 
+[2026-04-07 13:10:31] Return Items:: Array
+(
+    [0] => Array
+        (
+            [original_order_item_id] => 40
+            [original_product_id] => 8
+            [original_quantity] => 15
+            [original_unit_price] => 500
+            [original_subtotal] => 7500
+            [return_quantity] => 1
+            [return_subtotal] => 500
+            [action_type] => change_item
+            [reason] => bad
+        )
+
+)
+
+[2026-04-07 13:10:31] Customer ID: 26
+[2026-04-07 13:10:31] Return Number: RET-20260407-7DFDF5
+[2026-04-07 13:10:31] Total Refund: 500
+[2026-04-07 13:10:31] Checking order_returns table structure...
+[2026-04-07 13:10:31] order_returns columns:: Array
+(
+    [0] => id
+    [1] => return_number
+    [2] => order_id
+    [3] => customer_id
+    [4] => return_type
+    [5] => status
+    [6] => total_refund_amount
+    [7] => total_additional_payment
+    [8] => notes
+    [9] => created_by
+    [10] => created_at
+    [11] => processed_at
+    [12] => processed_by
+)
+
+[2026-04-07 13:10:31] Checking return_items table structure...
+[2026-04-07 13:10:31] return_items columns:: Array
+(
+    [0] => id
+    [1] => return_id
+    [2] => original_order_item_id
+    [3] => original_product_id
+    [4] => original_quantity
+    [5] => original_unit_price
+    [6] => original_subtotal
+    [7] => new_product_id
+    [8] => new_quantity
+    [9] => new_unit_price
+    [10] => new_subtotal
+    [11] => price_difference
+    [12] => action_type
+    [13] => reason
+    [14] => inventory_action
+)
+
+[2026-04-07 13:10:31] SQL: INSERT INTO order_returns (order_id, customer_id, return_number, return_type, status, total_refund_amount, total_additional_payment, created_by, notes, created_at) 
+                    VALUES (?, ?, ?, ?, 'pending', ?, 0, ?, ?, NOW())
+[2026-04-07 13:10:31] Parameters: order_id=34, customer_id=26, return_number=RET-20260407-7DFDF5, return_type=change_item, total_refund=500, created_by=27, notes=

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fingerchops Ventures | Artisanal Breads Since 2009</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the taste of tradition at Fingerchops Ventures. Handcrafted artisanal breads made with love since 2009. Visit us in Warri, Asaba, Benin, and beyond.">
+    <meta name="keywords" content="Ventures, fresh bread, artisanal bread, Warri bakery, Nigerian bakery, Fingerchops">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Fingerchops Ventures - Artisanal Breads Since 2009">
+    <meta property="og:description" content="Handcrafted breads made with love and tradition. Visit us today!">
+    <meta property="og:image" content="logo.jpeg">
+    <meta property="og:url" content="https://fingerchops.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="logo.jpeg" as="image">
+    <link rel="preload" href="bread.jpeg" as="image">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <!-- Main CSS (external) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PRELOADER - PULSING LOGO ONLY, NO SPINNER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <img src="logo.jpeg" alt="Fingerchops Ventures" class="preloader-logo">
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="menu-icon" id="menuToggle" aria-label="Menu" role="button" tabindex="0">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+
+            <div class="logo">
+                <a href="#home" class="logo-link">
+                    <div class="logo-circle">
+                        <img src="logo.jpeg" alt="Fingerchops Ventures" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <h1>Fingerchops</h1>
+                        <p>Premium Ventures Since 2009</p>
+                    </div>
+                </a>
+            </div>
+
+            <nav class="desktop-nav" id="desktopNav">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">Our Story</a></li>
+                    <li><a href="#featured" class="nav-link">Our Breads</a></li>
+                    <li><a href="#experts" class="nav-link">Our Experts</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#contact" class="btn btn-login">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Get in Touch</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Side Menu -->
+    <nav id="side-menu" class="side-menu">
+        <div class="side-menu-header">
+            <div class="logo-circle small">
+                <img src="logo.jpeg" alt="Fingerchops" class="side-menu-logo">
+            </div>
+            <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
+        </div>
+        <ul>
+            <li><a href="login_signup.php" class="menu-link"><i class="fas fa-user"></i> Login/Signup</a></li>
+            <li><a href="#home" class="menu-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about" class="menu-link"><i class="fas fa-info-circle"></i> Our Story</a></li>
+            <li><a href="#featured" class="menu-link"><i class="fas fa-bread-slice"></i> Our Breads</a></li>
+            <li><a href="#experts" class="menu-link"><i class="fas fa-users"></i> Our experts</a></li>
+            <li><a href="#process" class="menu-link"><i class="fas fa-utensils"></i> Baking Process</a></li>
+            <li><a href="#contact" class="menu-link"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            <li class="divider"></li>
+            <li><a href="#locations" class="menu-link"><i class="fas fa-map-marker-alt"></i> Our Locations</a></li>
+        </ul>
+        <div class="side-menu-footer">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </nav>
+    <div id="overlay" class="overlay"></div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-right">
+                    <div class="hero-badge">
+                        <span class="badge">Since 2009</span>
+                        <span class="badge">Artisanal Breads</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="brand-name">Fingerchops</span>
+                        <span class="brand-suffix">Ventures</span>
+                    </h1>
+                    <p class="hero-tagline">Handcrafted with love, baked with tradition</p>
+                    <div class="hero-stats">
+                        <div class="stat"><span class="stat-number">16+</span><span class="stat-label">Years of Excellence</span></div>
+                        <div class="stat"><span class="stat-number">7+</span><span class="stat-label">Bread Varieties</span></div>
+                        <div class="stat"><span class="stat-number">7</span><span class="stat-label">States Served</span></div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#featured" class="btn btn-primary"><i class="fas fa-bread-slice"></i> Explore Our Breads</a>
+                        <a href="#contact" class="btn btn-secondary"><i class="fas fa-store"></i> Visit Us</a>
+                        <a href="login_signup.php" class="btn btn-outline-light"><i class="fas fa-user-circle"></i> Create an Account / Log in</a>
+                    </div>
+                </div>
+                <div class="hero-image" data-aos="fade-left">
+                    <div class="image-frame floating">
+                        <img src="bread.jpeg" alt="Freshly baked artisanal bread" class="bread-image">
+                        <div class="image-badge">
+                            <span class="badge-text">Baked Fresh Daily</span>
+                            <span class="badge-time">No Preservatives</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-decoration">
+                <div class="floating-ingredients">
+                    <i class="fas fa-wheat-alt"></i>
+                    <i class="fas fa-seedling"></i>
+                    <i class="fas fa-leaf"></i>
+                </div>
+            </div>
+            <div class="scroll-indicator"><span>Discover</span><div class="mouse"></div></div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Our Heritage</span>
+                    <h2>The Fingerchops Story</h2>
+                    <div class="divider"><span class="divider-line"></span><i class="fas fa-bread-slice"></i><span class="divider-line"></span></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text" data-aos="fade-right">
+                        <p class="lead">From a small oven in Warri to serving communities across Nigeria: our journey is baked with passion.</p>
+                        <p>Founded in 2009, Fingerchops Ventures began with a simple mission: to bring the warmth of freshly baked, preservative-free bread to the tables of every home in Nigeria. Today, we're proud to serve Warri, Sapele, Asaba, Benin, Bayelsa, Port Harcourt, and Anambra with over 50 varieties of handcrafted breads.</p>
+                        <div class="features-grid">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>100% Natural Ingredients</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>No Preservatives Ever</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>Traditional Recipes</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>Modern Hygiene Standards</span></div>
+                        </div>
+                    </div>
+                    <div class="about-image" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Our bakery interior" class="rounded-image">
+                        <div class="experience-badge"><span class="years">16+</span><span class="text">Years of Excellence</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERTS CAROUSEL -->
+        <section id="experts" class="experts">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Meet Our Team</span>
+                    <h2>Master Bakers</h2>
+                    <div class="divider"><span class="divider-line"></span><i class="fas fa-users"></i><span class="divider-line"></span></div>
+                    <p class="section-description">The artists behind your daily bread</p>
+                </div>
+                <div class="experts-carousel-container" data-aos="fade-up">
+                    <div class="experts-carousel-track" id="expertsCarousel">
+                        <div class="expert-message-card">
+                            <div class="expert-image-wrapper">
+                                <img src="experts/Mrs_Fetuga.png" alt="Mrs. Fetuga" class="expert-image">
+                                <div class="expert-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
+                            </div>
+                            <div class="expert-message"><i class="fas fa-quote-left quote-icon"></i><p class="message-text">"Great bread needs time to develop flavor. That's why we let our dough rest for 24 hours — you can taste the difference in every slice."</p><div class="expert-info"><h4>Mrs. Fetuga</h4><p class="expert-title">Managing Director/CEO</p></div></div>
+                        </div>
+                        <div class="expert-message-card">
+                            <div class="expert-image-wrapper">
+                                <img src="experts/Wale_okunnyi.png" alt="Mr. Wale" class="expert-image">
+                                <div class="expert-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
+                            </div>
+                            <div class="expert-message"><i class="fas fa-quote-left quote-icon"></i><p class="message-text">"We source our flour directly from local farmers in Northern Nigeria. Supporting local communities while delivering premium quality."</p><div class="expert-info"><h4>Wale Okunnyi</h4><p class="expert-title">Human Resources</p></div></div>
+                        </div>
+                        <div class="expert-message-card">
+                            <div class="expert-image-wrapper">
+                                <img src="experts/Augustin_c_obiekea.png" alt="Mr. Augustin" class="expert-image">
+                                <div class="expert-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
+                            </div>
+                            <div class="expert-message"><i class="fas fa-quote-left quote-icon"></i><p class="message-text">"Our whole wheat bread keeps all the natural goodness of the grain. No bleaching, no shortcuts — just pure, healthy bread."</p><div class="expert-info"><h4>Augustin C. Obiekea</h4><p class="expert-title">Control Unit/Audit Unit</p></div></div>
+                        </div>
+                    </div>
+                    <div class="experts-carousel-controls">
+                        <button class="carousel-arrow prev" id="expertsPrev"><i class="fas fa-chevron-left"></i></button>
+                        <div class="carousel-dots" id="expertsDots"></div>
+                        <button class="carousel-arrow next" id="expertsNext"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO TOUR SECTION - PLACED RIGHT UNDER EXPERTS CAROUSEL -->
+        <section class="video-tour">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Behind the Scenes</span>
+                    <h2>Our Baking Process in Action</h2>
+                    <div class="divider"><span class="divider-line"></span><i class="fas fa-video"></i><span class="divider-line"></span></div>
+                    <p class="section-description">Watch a quick tour of our operational process — from dough to golden loaf</p>
+                </div>
+                <div class="video-wrapper" data-aos="zoom-in">
+                    <video class="tour-video" poster="logo.jpeg" controls>
+                        <source src="video.mp4" type="video/mp4">
+                        Your browser does not support the video tag. Please upgrade to view our baking tour.
+                    </video>
+                    <div class="video-caption"><i class="fas fa-play-circle"></i> Quick tour: Artisanal craft & fresh daily baking</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED BREADS -->
+        <section id="featured" class="featured">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Our Specialties</span>
+                    <h2>Artisanal Bread Collection</h2>
+                    <div class="divider"><span class="divider-line"></span><i class="fas fa-bread-slice"></i><span class="divider-line"></span></div>
+                    <p class="section-description">Each loaf is crafted with time-honored techniques and the finest ingredients</p>
+                </div>
+                <div class="bread-carousel-container">
+                    <div class="bread-carousel" id="breadCarousel"></div>
+                    <div class="carousel-hint"><i class="fas fa-pause-circle"></i><span>Hover to pause</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOURNEY SECTION -->
+        <section class="journey">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up"><span class="section-subtitle">Our Legacy</span><h2>16 Years of Baking Excellence</h2><div class="divider"><span class="divider-line"></span><i class="fas fa-scroll"></i><span class="divider-line"></span></div></div>
+                <div class="journey-container">
+                    <div class="journey-timeline" data-aos="fade-right">
+                        <div class="timeline-item"><div class="timeline-year">2009</div><div class="timeline-content"><h4>Founded in Warri</h4><p>Started with a single oven and a dream in the heart of Delta State</p></div></div>
+                        <div class="timeline-item"><div class="timeline-year">2014</div><div class="timeline-content"><h4>Commence</h4><p>Begin of Ventures operations (14<sup>th</sup> of September)</p></div></div>
+                        <div class="timeline-item"><div class="timeline-year">2018</div><div class="timeline-content"><h4>Regional Growth</h4><p>Expanded to serve Asaba, Benin, Bayelsa, and Port Harcourt</p></div></div>
+                        <div class="timeline-item"><div class="timeline-year">2024</div><div class="timeline-content"><h4>Today</h4><p>Serving 7+ states with 50+ bread varieties, loved by thousands</p></div></div>
+                    </div>
+                    <div class="story-card" id="storyCard" data-aos="fade-left">
+                        <div class="story-card-header"><i class="fas fa-book-open"></i><h3>Our Full Story</h3></div>
+                        <div class="story-preview"><p class="story-highlight"><strong>Vision:</strong> To have our tasty and nutritious baked goods on every tables of every home in Nigeria.<br><br><strong>Mission:</strong> To harness the power of food to connect people, cultures and create a better world for living.</p></div>
+                        <div class="story-full" id="storyFull"><div class="story-full-content"><p>Founded in the heart of Warri City, Delta State, Fingerchops Ventures started as a small family bakery with a big vision. We believed that every Nigerian family deserved access to freshly baked, preservative-free bread made with love and tradition.</p><p>Over the years, we've grown from that single oven to become a beloved bakery serving communities across Warri, Sapele, Asaba, Benin, Bayelsa, Port Harcourt, and Anambra States. Our commitment remains unchanged: quality ingredients, traditional methods, and bread that tastes like home.</p></div></div>
+                        <button id="toggleStory" class="story-dropdown-btn"><span class="btn-text"><i class="fas fa-book"></i> Read Our Story</span><span class="chevron-down"></span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS SECTION -->
+        <section id="process" class="process">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up"><span class="section-subtitle">How We Bake</span><h2>From Grain to Loaf</h2><div class="divider"><span class="divider-line"></span><i class="fas fa-bread-slice"></i><span class="divider-line"></span></div></div>
+                <div class="process-steps">
+                    <div class="step" data-aos="fade-up"><div class="step-icon"><i class="fas fa-wheat-alt"></i><span class="step-number">01</span></div><h3>Select Grains</h3><p>Premium grains from trusted local farmers</p></div>
+                    <div class="step" data-aos="fade-up" data-aos-delay="100"><div class="step-icon"><i class="fas fa-clock"></i><span class="step-number">02</span></div><h3>Slow Fermentation</h3><p>24-hour natural fermentation for deep flavor</p></div>
+                    <div class="step" data-aos="fade-up" data-aos-delay="200"><div class="step-icon"><i class="fas fa-hands"></i><span class="step-number">03</span></div><h3>Hand-Shaped</h3><p>Expertly shaped by our master bakers</p></div>
+                    <div class="step" data-aos="fade-up" data-aos-delay="300"><div class="step-icon"><i class="fas fa-fire"></i><span class="step-number">04</span></div><h3>Stone-Baked</h3><p>Baked to golden perfection in stone ovens</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up"><span class="section-subtitle">Customer Love</span><h2>What Our Community Says</h2><div class="divider"><span class="divider-line"></span><i class="fas fa-bread-slice"></i><span class="divider-line"></span></div></div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card" data-aos="fade-up"><p>"The butter bread is absolutely heavenly — soft, rich, and reminds me of my grandmother's baking. My family's breakfast isn't complete without it."</p><div class="customer"><strong>Mrs. Chioma Okafor</strong><span>Customer since 2015</span></div></div>
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100"><p>"I've tried bread all over Nigeria, but nothing compares to Fingerchops. Their whole wheat bread is pure perfection — you can taste the quality."</p><div class="customer"><strong>Mr. Adebayo Adewale</strong><span>Corporate Client</span></div></div>
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200"><p>"I drive from Benin City just to stock up on their fruit bread. It's that good! Worth every mile for that perfect blend of fruits and fresh bread."</p><div class="customer"><strong>Dr. Kenneth Eze</strong><span>Loyal Customer</span></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ & CONTACT -->
+        <section class="faq-contact" id="contact">
+            <div class="container">
+                <div class="faq-grid" data-aos="fade-right">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-accordion">
+                        <div class="faq-item"><button class="faq-question"><span><i class="fas fa-truck"></i> Do you deliver?</span><i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>Yes! We deliver fresh bread daily within Warri, Sapele, Asaba, and nearby areas. Contact us for delivery options in your location.</p></div></div>
+                        <div class="faq-item"><button class="faq-question"><span><i class="fas fa-leaf"></i> Are your breads preservative‑free?</span><i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>Absolutely! We never use preservatives or artificial additives. Just pure, natural ingredients baked fresh daily.</p></div></div>
+                        <div class="faq-item"><button class="faq-question"><span><i class="fas fa-clock"></i> What are your opening hours?</span><i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>We're open Monday through Saturday, 7:00 AM to 8:00 PM. Sunday: 8:00 AM to 2:00 PM.</p></div></div>
+                        <div class="faq-item"><button class="faq-question"><span><i class="fas fa-calendar"></i> Do you take bulk orders?</span><i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>Yes, we cater to corporate events, parties, and special occasions. Please contact us at least 48 hours in advance.</p></div></div>
+                    </div>
+                </div>
+                <div class="contact-wrapper" data-aos="fade-left">
+                    <h2>Get in Touch</h2>
+                    <div class="contact-info-grid">
+                        <div class="contact-card"><i class="fas fa-map-pin"></i><h3>Visit Us</h3><p>No. 30, Airport Road Effurun, Opposite Charissa Food Lounge<br>Delta State, Nigeria.</p></div>
+                        <div class="contact-card"><i class="fas fa-phone-alt"></i><h3>Call Us</h3><p>+234 (0) 907 474 5457<br>+234 (0) 907 474 9481</p></div>
+                        <div class="contact-card"><i class="fas fa-envelope"></i><h3>Email</h3><p>info@fingerchopsng.com<br>orders@fingerchopsng.com</p></div>
+                        <div class="contact-card"><i class="fas fa-clock"></i><h3>Hours</h3><p>Mon-Sat: 8am - 6pm<br>Sun: 8am - 2pm</p></div>
+                    </div>
+                    <form class="contact-form" id="contactForm"><div class="form-row"><input type="text" placeholder="Your Name" required><input type="email" placeholder="Your Email" required></div><input type="text" placeholder="Subject" required><textarea placeholder="Your Message" rows="4" required></textarea><button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button></form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up"><h2>Experience the Taste of Tradition</h2><p>Visit us today or place your order for fresh, artisanal bread</p><div class="cta-buttons"><a href="#contact" class="btn btn-outline btn-large"><i class="fas fa-store"></i> Find a Location</a><a href="login_signup.php" class="btn btn-primary btn-large"><i class="fas fa-user"></i> Login or Create an Account</a><a href="#featured" class="btn btn-outline btn-large"><i class="fas fa-bread-slice"></i> View Our Breads</a></div></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about"><div class="logo-circle small"><img src="logo.jpeg" alt="Fingerchops" class="footer-logo"></div><p>Putting our freshly baked goods on every table of every home in Nigeria.</p><div class="footer-social"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
+                <div class="footer-links"><h3>Quick Links</h3><ul><li><a href="#home">Home</a></li><li><a href="#about">Our Story</a></li><li><a href="#featured">Our Breads</a></li><li><a href="#experts">Our Team</a></li><li><a href="#contact">Contact</a></li></ul></div>
+                <div class="footer-hours"><h3>Opening Hours</h3><ul class="hours-list"><li><span>Monday - Saturday</span> 7am - 8pm</li><li><span>Sunday</span> 8am - 2pm</li><li><span>Public Holidays</span> 8am - 4pm</li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>Copyright &copy; 2026 Fingerchops Ventures. All rights reserved. | Crafted with ❤️ in Nigeria</p></div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+    <div id="notification" class="notification"><div class="notification-content"><i class="fas fa-check-circle"></i><span>Thank you! We'll be in touch soon.</span></div></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        
+        const header = document.getElementById('header');
+        const desktopNav = document.getElementById('desktopNav');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                desktopNav.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                desktopNav.classList.remove('visible');
+            }
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Bread carousel data
+        const breadCarousel = document.getElementById('breadCarousel');
+        if (breadCarousel) {
+            const breads = [
+                { name: 'Classic White', price: '500', icon: 'fa-bread-slice' },
+                { name: 'Whole Wheat', price: '600', icon: 'fa-leaf' },
+                { name: 'Butter Bread', price: '550', icon: 'fa-cow' },
+                { name: 'Brown Bread', price: '550', icon: 'fa-bread-slice' },
+                { name: 'Mid Wheat', price: '580', icon: 'fa-seedling' },
+                { name: 'Vanilla', price: '620', icon: 'fa-ice-cream' },
+                { name: 'Fruit Bread', price: '750', icon: 'fa-apple-alt' },
+                { name: 'Jumbo', price: '800', icon: 'fa-weight-hanging' },
+                { name: 'Sliced Bread', price: '520', icon: 'fa-bread-slice' },
+                { name: 'Tea Bread', price: '480', icon: 'fa-mug-hot' }
+            ];
+            let html = '';
+            for (let i = 0; i < 2; i++) {
+                breads.forEach(bread => {
+                    html += `<div class="bread-item"><div class="bread-icon"><i class="fas ${bread.icon}"></i></div><h3>${bread.name}</h3><div class="bread-price">₦${bread.price}</div></div>`;
+                });
+            }
+            breadCarousel.innerHTML = html;
+            const carouselDiv = document.querySelector('.bread-carousel');
+            if (carouselDiv) {
+                carouselDiv.addEventListener('mouseenter', () => carouselDiv.style.animationPlayState = 'paused');
+                carouselDiv.addEventListener('mouseleave', () => carouselDiv.style.animationPlayState = 'running');
+            }
+        }
+
+        // Experts carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.getElementById('expertsCarousel');
+            const prev = document.getElementById('expertsPrev');
+            const next = document.getElementById('expertsNext');
+            const dotsContainer = document.getElementById('expertsDots');
+            
+            if (track && prev && next) {
+                let currentIndex = 0;
+                const slides = document.querySelectorAll('.expert-message-card');
+                const totalSlides = slides.length;
+                
+                if (dotsContainer) {
+                    dotsContainer.innerHTML = '';
+                    for (let i = 0; i < totalSlides; i++) {
+                        const dot = document.createElement('span');
+                        dot.classList.add('dot');
+                        dot.setAttribute('data-index', i);
+                        dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+                
+                const dots = document.querySelectorAll('#expertsDots .dot');
+                
+                function goToSlide(index) {
+                    currentIndex = (index + totalSlides) % totalSlides;
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === currentIndex);
+                    });
+                }
+                
+                prev.addEventListener('click', () => goToSlide(currentIndex - 1));
+                next.addEventListener('click', () => goToSlide(currentIndex + 1));
+                goToSlide(0);
+                setInterval(() => goToSlide(currentIndex + 1), 5000);
+            }
+
+            // Mobile menu
+            const menu = document.getElementById('side-menu');
+            const overlay = document.getElementById('overlay');
+            const menuToggle = document.getElementById('menuToggle');
+            const closeMenuBtn = document.getElementById('closeMenu');
+            
+            function toggleMenu() {
+                menu.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+            }
+            function closeMenu() {
+                menu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+            if (overlay) overlay.addEventListener('click', closeMenu);
+            document.querySelectorAll('.menu-link').forEach(link => link.addEventListener('click', closeMenu));
+
+            // FAQ Accordion
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('.fa-chevron-down');
+                    document.querySelectorAll('.faq-question').forEach(q => {
+                        if (q !== this && q.classList.contains('active')) {
+                            q.classList.remove('active');
+                            q.nextElementSibling.style.maxHeight = null;
+                            q.querySelector('.fa-chevron-down').style.transform = 'rotate(0)';
+                        }
+                    });
+                    this.classList.toggle('active');
+                    if (this.classList.contains('active')) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        answer.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0)';
+                    }
+                });
+            });
+
+            // Preloader - remove after load
+            window.addEventListener('load', () => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.classList.add('fade-out');
+                    setTimeout(() => { preloader.style.display = 'none'; }, 600);
+                }
+            });
+
+            // Back to top
+            document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // Contact form
+            const contactForm = document.getElementById('contactForm');
+            const notification = document.getElementById('notification');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    notification.classList.add('show');
+                    setTimeout(() => notification.classList.remove('show'), 3000);
+                    contactForm.reset();
+                });
+            }
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        closeMenu();
+                    }
+                });
+            });
+
+            // Story toggle
+            const storyCard = document.getElementById('storyCard');
+            const toggleStory = document.getElementById('toggleStory');
+            if (storyCard && toggleStory) {
+                toggleStory.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    storyCard.classList.toggle('expanded');
+                    const btnSpan = this.querySelector('.btn-text');
+                    btnSpan.innerHTML = storyCard.classList.contains('expanded') ? '<i class="fas fa-book-open"></i> Show Less' : '<i class="fas fa-book"></i> Read Our Story';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+link staffs to branches, (this will automatically determine which head any staff will report to considering their department and branch)

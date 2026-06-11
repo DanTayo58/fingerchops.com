@@ -1,0 +1,83 @@
+fingerchops-bakery/
+│
+├── home.html
+│      │
+├── style.css
+│
+├── login_signup.php
+│       │
+├── signup.css
+├── TandC.css
+│
+├── auth.php
+├── conn.php
+├── reset-password.php
+├── config/
+│   ├── config_loader.php
+│   └── roles.php
+├── cache/
+│   └── config_cache.php
+├── includes/
+│   ├── Auth.php
+│   ├── Mailer.php
+│   ├── User.php
+│   ├── Security.php
+│   ├── Helpers.php
+│   ├── DashboardRouter.php
+│   └── Validation.php
+├── dashboards/
+│   ├── css/
+│   │    └── customer-dashboard.css
+│   ├── customer-actions/
+│   │    ├── checkout.php
+│   │    ├── orders.php
+│   │    └──  css/
+│   │            ├── checkout.css
+│   │            └── orders.css
+│   ├── images/
+│   │    └── products/
+│   │           ├── 1
+│   │           └── (all other images saved by product id)
+│   │    └── receipts/
+│   │           ├── 1
+│   │           └── (all other images saved by reciept number)
+│   ├── staff/
+│   │   ├── admin_power/
+│   │   │     ├── department.php
+│   │   │     ├── logo.jpeg
+│   │   │     ├── new-staff.php
+│   │   │     ├── products.php
+│   │   │     ├── roles.php
+│   │   │     ├── system.php
+│   │   │     ├── users.php
+│   │   │     └── css/
+│   │   │            ├── department.css
+│   │   │            ├── new-staff.css
+│   │   │            ├── products.css
+│   │   │            ├── roles.css
+│   │   │            ├── roles_m.css
+│   │   │            └── system.css
+│   │   ├── tools/
+│   │   │     ├── add-sale.php
+│   │   │     ├── manage-staff.php
+│   │   │     ├── sales-analysis.php
+│   │   │     ├── sales-history.php
+│   │   │     └── css/
+│   │   │            ├── sales-analysis.css
+│   │   │            ├── manage-staff.css
+│   │   │            ├── add-sale.css
+│   │   │            └── sales history.css
+│   │   ├── css/
+│   │   │     ├── admin-dashboard.css
+│   │   │     ├── admin-dashboard_m.css
+│   │   │     ├── sales-dashboard.css
+│   │   │     └── staff-dashboard.css
+│   │   ├── admin-dashboard.php
+│   │   ├── general-dashboard.php
+│   │   ├── hr-dashboard.php
+│   │   ├── logo.jpeg
+│   │   └──sales-dashboard.php
+│   ├── customer-dashboard.php
+│   ├── logo.jpeg
+│   └── logout.php
+└── files/

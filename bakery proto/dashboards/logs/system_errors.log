@@ -1,0 +1,65 @@
+2026-03-30 13:15:46 - Failed to fetch branch mappings: Array
+(
+    [error] => Unknown column 'bsm.state' in 'field list'
+)
+
+2026-03-30 13:15:50 - AJAX Exception: Array
+(
+    [action] => get_branch_state_mappings
+    [error] => Unknown column 'bsm.state' in 'field list'
+    [trace] => #0 C:\wamp64\www\bakery proto\conn.php(267): mysqli->prepare('\r\n             ...')
+#1 C:\wamp64\www\bakery proto\conn.php(291): Database->executePrepared('\r\n             ...', 'i', Array)
+#2 C:\wamp64\www\bakery proto\dashboards\staff\admin_power\system.php(138): Database->preparedFetchAll('\r\n             ...', 'i', Array)
+#3 {main}
+)
+
+2026-03-30 13:15:50 - AJAX Exception: Array
+(
+    [action] => get_available_states
+    [error] => Unknown column 'state' in 'field list'
+    [trace] => #0 C:\wamp64\www\bakery proto\conn.php(267): mysqli->prepare('SELECT state FR...')
+#1 C:\wamp64\www\bakery proto\conn.php(291): Database->executePrepared('SELECT state FR...', 'i', Array)
+#2 C:\wamp64\www\bakery proto\dashboards\staff\admin_power\system.php(155): Database->preparedFetchAll('SELECT state FR...', 'i', Array)
+#3 {main}
+)
+
+2026-03-30 13:15:56 - AJAX Exception: Array
+(
+    [action] => get_branch_state_mappings
+    [error] => Unknown column 'bsm.state' in 'field list'
+    [trace] => #0 C:\wamp64\www\bakery proto\conn.php(267): mysqli->prepare('\r\n             ...')
+#1 C:\wamp64\www\bakery proto\conn.php(291): Database->executePrepared('\r\n             ...', 'i', Array)
+#2 C:\wamp64\www\bakery proto\dashboards\staff\admin_power\system.php(138): Database->preparedFetchAll('\r\n             ...', 'i', Array)
+#3 {main}
+)
+
+2026-03-30 13:15:56 - AJAX Exception: Array
+(
+    [action] => get_available_states
+    [error] => Unknown column 'state' in 'field list'
+    [trace] => #0 C:\wamp64\www\bakery proto\conn.php(267): mysqli->prepare('SELECT state FR...')
+#1 C:\wamp64\www\bakery proto\conn.php(291): Database->executePrepared('SELECT state FR...', 'i', Array)
+#2 C:\wamp64\www\bakery proto\dashboards\staff\admin_power\system.php(155): Database->preparedFetchAll('SELECT state FR...', 'i', Array)
+#3 {main}
+)
+
+2026-03-30 13:16:31 - AJAX Exception: Array
+(
+    [action] => get_branch_state_mappings
+    [error] => Unknown column 'bsm.state' in 'field list'
+    [trace] => #0 C:\wamp64\www\bakery proto\conn.php(267): mysqli->prepare('\r\n             ...')
+#1 C:\wamp64\www\bakery proto\conn.php(291): Database->executePrepared('\r\n             ...', 'i', Array)
+#2 C:\wamp64\www\bakery proto\dashboards\staff\admin_power\system.php(138): Database->preparedFetchAll('\r\n             ...', 'i', Array)
+#3 {main}
+)
+
+2026-03-30 13:16:32 - AJAX Exception: Array
+(
+    [action] => get_available_states
+    [error] => Unknown column 'state' in 'field list'
+    [trace] => #0 C:\wamp64\www\bakery proto\conn.php(267): mysqli->prepare('SELECT state FR...')
+#1 C:\wamp64\www\bakery proto\conn.php(291): Database->executePrepared('SELECT state FR...', 'i', Array)
+#2 C:\wamp64\www\bakery proto\dashboards\staff\admin_power\system.php(155): Database->preparedFetchAll('SELECT state FR...', 'i', Array)
+#3 {main}
+)
+
