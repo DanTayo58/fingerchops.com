@@ -69,6 +69,7 @@
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">Our Story</a></li>
                     <li><a href="#featured" class="nav-link">Our Breads</a></li>
+                    <li><a href="#portfolio" class="nav-link">Our Heart</a></li>
                     <li><a href="#experts" class="nav-link">Our Experts</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -96,6 +97,7 @@
             <li><a href="#home" class="menu-link"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#about" class="menu-link"><i class="fas fa-info-circle"></i> Our Story</a></li>
             <li><a href="#featured" class="menu-link"><i class="fas fa-bread-slice"></i> Our Breads</a></li>
+            <li><a href="#portfolio" class="menu-link"><i class="fas fa-heart"></i> Our Heart</a></li>
             <li><a href="#experts" class="menu-link"><i class="fas fa-users"></i> Our experts</a></li>
             <li><a href="#process" class="menu-link"><i class="fas fa-utensils"></i> Baking Process</a></li>
             <li><a href="#contact" class="menu-link"><i class="fas fa-envelope"></i> Contact Us</a></li>
@@ -257,6 +259,68 @@
                 <div class="bread-carousel-container">
                     <div class="bread-carousel" id="breadCarousel"></div>
                     <div class="carousel-hint"><i class="fas fa-pause-circle"></i><span>Hover to pause</span></div>
+                    
+                    <!-- CALCULATOR TOGGLE ACTION -->
+                    <div class="calculator-toggle-container" data-aos="fade-up">
+                        <button id="toggleCalculatorBtn" class="calc-toggle-btn">
+                            <i class="fas fa-calculator" id="calcBtnIcon"></i> <span id="calcBtnText">Open Interactive Bundle Calculator</span>
+                            <span class="calc-badge" id="calcCartBadge" style="display: none;">0</span>
+                        </button>
+                    </div>
+
+                    <!-- BUNDLE CALCULATOR WORKSPACE -->
+                    <div id="calculatorSection" class="calculator-section" data-aos="fade-up">
+                        <div class="calculator-header">
+                            <div class="calculator-header-left">
+                                <div class="calculator-header-icon">
+                                    <i class="fas fa-shopping-basket"></i>
+                                </div>
+                                <div style="text-align: left;">
+                                    <h3 class="calculator-header-title">Interactive Bundle Builder</h3>
+                                    <p class="calculator-header-subtitle">Dynamic pricing and bulk ration helper</p>
+                                </div>
+                            </div>
+                            <button onclick="clearCalculator()" class="calculator-btn-clear">
+                                <i class="fas fa-trash-alt"></i> Clear All Entries
+                            </button>
+                        </div>
+
+                        <!-- Empty State -->
+                        <div id="calculatorEmptyState" class="calculator-empty-state">
+                            <i class="fas fa-bread-slice calculator-empty-icon"></i>
+                            <p class="calculator-empty-title">Your Bundle Workspace is Empty</p>
+                            <p class="calculator-empty-desc">Use the quantity controllers (<strong style="color: #b59868;">-</strong> / <strong style="color: #b59868;">+</strong>) inside the scrolling bread catalog above to design your custom ration bundle!</p>
+                        </div>
+
+                        <!-- Active Item Breakdown -->
+                        <div id="calculatorActiveState" style="display: none;">
+                            <div class="calculator-table-container">
+                                <table class="calculator-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="calculator-th">Product Choice</th>
+                                            <th class="calculator-th" style="text-align: center; width: 140px;">Quantity</th>
+                                            <th class="calculator-th" style="text-align: right; width: 120px;">Unit Price</th>
+                                            <th class="calculator-th" style="text-align: right; width: 140px;">Subtotal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="calculatorItemsBody">
+                                        <!-- Javascript dynamically injected rows -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="calculator-summary-container">
+                                <div class="calculator-total-row">
+                                    <span class="calculator-total-label">Estimated Bundle Total:</span>
+                                    <span id="calculatorTotalPrice" class="calculator-total-price">₦0</span>
+                                </div>
+                                <div class="calculator-footer-info">
+                                    <i class="fas fa-info-circle" style="color: #b59868; margin-right: 5px;"></i> This interactive tool is for advertising and custom plan estimations. To submit official orders with actual branch stock matching, kindly <a href="login_signup.php" style="color: #b59868; text-decoration: underline; font-weight: 600;">login or sign up</a>!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -291,6 +355,69 @@
                     <div class="step" data-aos="fade-up" data-aos-delay="100"><div class="step-icon"><i class="fas fa-clock"></i><span class="step-number">02</span></div><h3>Slow Fermentation</h3><p>24-hour natural fermentation for deep flavor</p></div>
                     <div class="step" data-aos="fade-up" data-aos-delay="200"><div class="step-icon"><i class="fas fa-hands"></i><span class="step-number">03</span></div><h3>Hand-Shaped</h3><p>Expertly shaped by our master bakers</p></div>
                     <div class="step" data-aos="fade-up" data-aos-delay="300"><div class="step-icon"><i class="fas fa-fire"></i><span class="step-number">04</span></div><h3>Stone-Baked</h3><p>Baked to golden perfection in stone ovens</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR HEART & OUTREACH (COMMUNITY FIRST) -->
+        <section id="portfolio" class="outreach-section">
+            <div class="container container-large">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">This Is Us</span>
+                    <h2>The Heart of Fingerchops</h2>
+                    <div class="divider">
+                        <span class="divider-line"></span>
+                        <i class="fas fa-heart"></i>
+                        <span class="divider-line"></span>
+                    </div>
+                    <p class="section-description">We don't just bake bread to sell. We bake to nurture, empower, and lift our local Delta State community every single day.</p>
+                </div>
+                
+                <div class="outreach-grid">
+                    <!-- Feature 1: Feeding Families -->
+                    <div class="outreach-card" data-aos="fade-up">
+                        <div class="outreach-card-image-container">
+                            <span class="outreach-badge">Community Care</span>
+                            <i class="fas fa-hand-holding-heart outreach-icon"></i>
+                        </div>
+                        <div class="outreach-card-body">
+                            <h3>Loaves of Hope</h3>
+                            <p>Every week, we pack up crates of fresh, warm, nutritious Golden Butter bread and deliver them directly to local motherless baby homes, orphanages, and struggling family shelters in and around Warri. To us, feeding the community is a responsibility we carry with absolute pride.</p>
+                            <div class="outreach-footer-note">
+                                <i class="fas fa-circle"></i> Spreading warmth where it is needed most
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 2: Youth Empowerment Apprenticeships -->
+                    <div class="outreach-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="outreach-card-image-container">
+                            <span class="outreach-badge">Free Training</span>
+                            <i class="fas fa-graduation-cap outreach-icon"></i>
+                        </div>
+                        <div class="outreach-card-body">
+                            <h3>Bakers of Tomorrow</h3>
+                            <p>Through our free Vocational Bakery apprentice program, we've trained over 450 passionate youths across Warri, Sapele, and Delta State. We provide them with hands-on skills, mentorship, and professional baking tools for free so they can create sustainable livelihoods.</p>
+                            <div class="outreach-footer-note">
+                                <i class="fas fa-circle"></i> Over 450 local youths empowered with career skills
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 3: The 2 AM Devotion -->
+                    <div class="outreach-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="outreach-card-image-container">
+                            <span class="outreach-badge">Our Devotion</span>
+                            <i class="fas fa-moon outreach-icon"></i>
+                        </div>
+                        <div class="outreach-card-body">
+                            <h3>The 2:00 AM Rising</h3>
+                            <p>While the rest of the city rests, our warm lights are already on. At exactly 2:00 AM, our devoted team of 45 local bakers begins preparing the pure dough by hand, ensuring that the warm aroma of fresh, healthy bread greets our neighbors right at sunrise.</p>
+                            <div class="outreach-footer-note">
+                                <i class="fas fa-circle"></i> Honest labor, baked fresh for every home
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -377,7 +504,7 @@
             }
         });
 
-        // Bread carousel data
+        // Bread carousel data and interactive bundle calculator
         const breadCarousel = document.getElementById('breadCarousel');
         if (breadCarousel) {
             const breads = [
@@ -392,26 +519,177 @@
                 { name: 'Sliced Bread', price: '520', img: 'bread.jpeg' },
                 { name: 'Tea Bread', price: '480', img: 'bread.jpeg' }
             ];
+            
+            // Global pricing and quantities state
+            window.breadPrices = {};
+            window.bundleQuantities = {};
+            
+            breads.forEach(bread => {
+                window.breadPrices[bread.name] = parseInt(bread.price);
+                window.bundleQuantities[bread.name] = 0;
+            });
+
             let html = '';
             for (let i = 0; i < 2; i++) {
                 breads.forEach(bread => {
+                    const cleanClassName = `qty-input-${bread.name.replace(/\s+/g, '-')}`;
                     html += `
-                    <div class="bread-item">
+                    <div class="bread-item" style="cursor: default;">
                         <div class="bread-img-container">
                             <img src="${bread.img}" alt="${bread.name}">
                         </div>
-                        <div class="bread-item-bottom">
-                            <h3>${bread.name}</h3>
-                            <div class="bread-price">₦${bread.price}</div>
+                        <div class="bread-item-bottom" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                            <h3 style="font-size: 17px; margin-bottom: 2px;">${bread.name}</h3>
+                            <div class="bread-price" style="margin-top: 0; padding: 6px 16px; font-size: 14.5px;">₦${bread.price}</div>
+                            
+                            <!-- INTERACTIVE QUANTITY CONTROLLERS -->
+                            <div class="scrolling-shop-controls">
+                                <button onclick="decreaseQty('${bread.name}', event)" class="scrolling-shop-btn-dec">-</button>
+                                <input type="number" class="${cleanClassName} scrolling-shop-qty-val" min="0" value="0" onchange="updateQtyDirectly('${bread.name}', this.value, event)" onclick="event.stopPropagation()">
+                                <button onclick="increaseQty('${bread.name}', event)" class="scrolling-shop-btn-inc">+</button>
+                            </div>
                         </div>
                     </div>`;
                 });
             }
+            
             breadCarousel.innerHTML = html;
+            
             const carouselDiv = document.querySelector('.bread-carousel');
             if (carouselDiv) {
                 carouselDiv.addEventListener('mouseenter', () => carouselDiv.style.animationPlayState = 'paused');
                 carouselDiv.addEventListener('mouseleave', () => carouselDiv.style.animationPlayState = 'running');
+            }
+
+            // Sync quantity controllers
+            window.decreaseQty = function(name, e) {
+                if (e) e.stopPropagation();
+                const current = window.bundleQuantities[name] || 0;
+                if (current > 0) {
+                    window.updateQty(name, current - 1);
+                }
+            };
+
+            window.increaseQty = function(name, e) {
+                if (e) e.stopPropagation();
+                const current = window.bundleQuantities[name] || 0;
+                window.updateQty(name, current + 1);
+            };
+
+            window.updateQtyDirectly = function(name, val, e) {
+                if (e) e.stopPropagation();
+                let num = parseInt(val);
+                if (isNaN(num) || num < 0) {
+                    num = 0;
+                }
+                window.updateQty(name, num);
+            };
+
+            window.updateQty = function(name, qty) {
+                window.bundleQuantities[name] = qty;
+                const escapedName = name.replace(/\s+/g, '-');
+                const inputs = document.querySelectorAll(`.qty-input-${escapedName}`);
+                inputs.forEach(input => {
+                    input.value = qty;
+                });
+                
+                // Refresh the calculator panel in real-time
+                updateCalculatorUI();
+            };
+
+            window.clearCalculator = function() {
+                for (let key in window.bundleQuantities) {
+                    window.bundleQuantities[key] = 0;
+                    const escapedName = key.replace(/\s+/g, '-');
+                    const inputs = document.querySelectorAll(`.qty-input-${escapedName}`);
+                    inputs.forEach(input => {
+                        input.value = 0;
+                    });
+                }
+                updateCalculatorUI();
+            };
+
+            function updateCalculatorUI() {
+                const itemsBody = document.getElementById('calculatorItemsBody');
+                const emptyState = document.getElementById('calculatorEmptyState');
+                const activeState = document.getElementById('calculatorActiveState');
+                const totalPriceEl = document.getElementById('calculatorTotalPrice');
+                const badgeEl = document.getElementById('calcCartBadge');
+
+                if (!itemsBody) return;
+
+                let itemsHtml = '';
+                let grandTotal = 0;
+                let totalQty = 0;
+
+                for (let name in window.bundleQuantities) {
+                    const qty = window.bundleQuantities[name];
+                    if (qty > 0) {
+                        totalQty += qty;
+                        const price = window.breadPrices[name] || 0;
+                        const subtotal = price * qty;
+                        grandTotal += subtotal;
+
+                        itemsHtml += `
+                        <tr class="calculator-row">
+                            <td data-label="Product Choice" class="calculator-td-product">
+                                <span class="calculator-product-span">
+                                    <i class="fas fa-bread-slice" style="color: #b59868; font-size: 14px;"></i>
+                                    ${name}
+                                </span>
+                            </td>
+                            <td data-label="Quantity" class="calculator-td-qty">
+                                <div class="calculator-qty-badge">
+                                    <span class="calculator-qty-span">${qty}</span>
+                                </div>
+                            </td>
+                            <td data-label="Unit Price" class="calculator-td-price">₦${price}</td>
+                            <td data-label="Subtotal" class="calculator-td-subtotal">₦${subtotal.toLocaleString()}</td>
+                        </tr>`;
+                    }
+                }
+
+                if (totalQty > 0) {
+                    itemsBody.innerHTML = itemsHtml;
+                    emptyState.style.display = 'none';
+                    activeState.style.display = 'block';
+                    totalPriceEl.textContent = '₦' + grandTotal.toLocaleString();
+                    
+                    // Show count badge on toggle button
+                    badgeEl.style.display = 'inline-block';
+                    badgeEl.textContent = totalQty;
+                } else {
+                    emptyState.style.display = 'block';
+                    activeState.style.display = 'none';
+                    badgeEl.style.display = 'none';
+                    badgeEl.textContent = '0';
+                }
+            }
+
+            // Calculator toggle event handler
+            const toggleBtn = document.getElementById('toggleCalculatorBtn');
+            const calcSection = document.getElementById('calculatorSection');
+            const calcBtnIcon = document.getElementById('calcBtnIcon');
+            const calcBtnText = document.getElementById('calcBtnText');
+            
+            if (toggleBtn && calcSection) {
+                toggleBtn.addEventListener('click', function() {
+                    if (calcSection.style.display === 'none') {
+                        calcSection.style.display = 'block';
+                        calcBtnText.textContent = 'Close Bundle Calculator';
+                        calcBtnIcon.className = 'fas fa-times';
+                        toggleBtn.style.backgroundColor = '#4a3c31';
+                        // Scroll to workspace smoothly
+                        setTimeout(() => {
+                            calcSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 100);
+                    } else {
+                        calcSection.style.display = 'none';
+                        calcBtnText.textContent = 'Open Interactive Bundle Calculator';
+                        calcBtnIcon.className = 'fas fa-calculator';
+                        toggleBtn.style.backgroundColor = '#b59868';
+                    }
+                });
             }
         }
 
