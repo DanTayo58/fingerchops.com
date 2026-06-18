@@ -38,6 +38,8 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
     font-size: 16px;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -46,6 +48,15 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+main {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    display: block;
 }
 
 /* ===== CONTAINER ===== */
@@ -54,6 +65,18 @@ body {
     margin: 0 auto;
     padding: 0 28px;
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
 }
 
 /* ===== PRELOADER ===== */
@@ -2254,13 +2277,9 @@ section {
     .stat-number { font-size: 26px; }
     .stat-label { font-size: 10px; }
 
-    /* Perfectly center every div for phone design */
-    .hero-content, .about-text, .experts, .featured, .journey, .process, .testimonials, .faq-contact, .cta-section {
+    /* Perfectly center main content blocks for phone design without breaking layout engines */
+    .hero-content, .about-text, .section-header, .testimonial-card, .cta-content {
         text-align: center !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
     }
     
     .about-text {
