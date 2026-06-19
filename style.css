@@ -1686,7 +1686,7 @@ section {
     margin-bottom: 20px;
     border: 1px solid #e2e0dd;
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 16px;
     transition: var(--transition);
     font-family: var(--font-body);
     background: var(--cream);
