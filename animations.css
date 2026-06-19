@@ -1,0 +1,279 @@
+/* ===== LOCATIONS CAROUSEL STYLING & ANIMATIONS ===== */
+
+.locations-carousel-outer {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    position: relative;
+    width: 100%;
+}
+
+.locations-carousel-container {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 28px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(181, 152, 104, 0.25);
+    background: var(--white);
+    position: relative;
+}
+
+.locations-carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+}
+
+/* Slide item representing 2 Pages side-by-side */
+.location-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.location-slide-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    min-height: 440px;
+    background: var(--white);
+}
+
+/* Page 1: Cover featuring Picture & Name of place */
+.location-page-cover {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.location-cover-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(30, 20, 10, 0.9) 0%, rgba(30, 20, 10, 0.5) 60%, rgba(30, 20, 10, 0.1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 35px;
+    box-sizing: border-box;
+}
+
+.location-badge {
+    align-self: flex-start;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--gold, #dfa650), #c48e3d);
+    color: var(--white, #ffffff);
+    padding: 6px 14px;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.location-title {
+    font-family: var(--font-heading, "Playfair Display", serif);
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.3;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin: 0;
+    color: #ffffff !important;
+}
+
+/* Page 2: Details featuring Description and Address */
+.location-page-details {
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--white);
+    border-left: 1px solid rgba(181, 152, 104, 0.15);
+    box-sizing: border-box;
+}
+
+.location-details-top {
+    margin-bottom: 25px;
+}
+
+.location-page-heading {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--secondary, #7c5b40);
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.location-desc {
+    font-size: 15px;
+    color: var(--text-dark, #5c4e40);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.location-details-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 25px;
+    border-top: 1px dashed rgba(181, 152, 104, 0.25);
+}
+
+.location-meta {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-dark, #3d2712);
+    line-height: 1.5;
+}
+
+.location-meta i {
+    font-size: 16px;
+    color: var(--primary, #5c3e21);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.location-meta strong {
+    color: var(--primary-dark, #3d2712);
+    font-weight: 600;
+}
+
+/* Carousel Control Elements */
+.locations-carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.locations-nav-btn {
+    background: var(--white);
+    border: 1px solid rgba(181, 152, 104, 0.3);
+    color: var(--primary, #5c3e21);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.locations-nav-btn:hover {
+    background: var(--primary, #5c3e21);
+    color: var(--white, #ffffff);
+    border-color: var(--primary, #5c3e21);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(92, 62, 33, 0.2);
+}
+
+.locations-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.locations-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(181, 152, 104, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.locations-dots .dot.active {
+    background: var(--primary, #5c3e21);
+    transform: scale(1.3);
+}
+
+/* RESPONSIVE HANDLING: Collapse booklet to stacked single cover & detail column */
+@media (max-width: 900px) {
+    .location-slide-inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .location-page-cover {
+        aspect-ratio: 16/9;
+        min-height: auto;
+        height: auto;
+        max-height: 260px;
+    }
+
+    .location-title {
+        font-size: 20px !important;
+    }
+
+    .location-page-details {
+        border-left: none;
+        border-top: 1px solid rgba(181, 152, 104, 0.15);
+        padding: 25px;
+    }
+
+    .location-cover-overlay {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .location-page-cover {
+        aspect-ratio: 16/10;
+        max-height: 200px;
+    }
+
+    .location-title {
+        font-size: 17px !important;
+    }
+
+    .location-cover-overlay {
+        padding: 15px;
+    }
+
+    .location-badge {
+        font-size: 9px !important;
+        padding: 4px 10px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .location-page-details {
+        padding: 16px;
+    }
+
+    .location-page-heading {
+        font-size: 11px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .location-desc {
+        font-size: 13.5px !important;
+    }
+
+    .location-details-bottom {
+        gap: 10px !important;
+        padding-top: 16px !important;
+    }
+
+    .location-meta {
+        font-size: 13px !important;
+        gap: 10px !important;
+    }
+
+    .location-meta i {
+        font-size: 14px !important;
+    }
+}
