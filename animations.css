@@ -209,71 +209,16 @@
     }
 
     .location-page-cover {
-        aspect-ratio: 16/9;
-        min-height: auto;
-        height: auto;
-        max-height: 260px;
-    }
-
-    .location-title {
-        font-size: 20px !important;
+        min-height: 240px;
     }
 
     .location-page-details {
         border-left: none;
         border-top: 1px solid rgba(181, 152, 104, 0.15);
+        padding: 30px;
+    }
+
+    .location-cover-overlay {
         padding: 25px;
-    }
-
-    .location-cover-overlay {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .location-page-cover {
-        aspect-ratio: 16/10;
-        max-height: 200px;
-    }
-
-    .location-title {
-        font-size: 17px !important;
-    }
-
-    .location-cover-overlay {
-        padding: 15px;
-    }
-
-    .location-badge {
-        font-size: 9px !important;
-        padding: 4px 10px !important;
-        margin-bottom: 8px !important;
-    }
-
-    .location-page-details {
-        padding: 16px;
-    }
-
-    .location-page-heading {
-        font-size: 11px !important;
-        margin-bottom: 8px !important;
-    }
-
-    .location-desc {
-        font-size: 13.5px !important;
-    }
-
-    .location-details-bottom {
-        gap: 10px !important;
-        padding-top: 16px !important;
-    }
-
-    .location-meta {
-        font-size: 13px !important;
-        gap: 10px !important;
-    }
-
-    .location-meta i {
-        font-size: 14px !important;
     }
 }
