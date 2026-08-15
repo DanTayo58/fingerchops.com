@@ -1,4 +1,4 @@
-/* ===== VARIABLES - RICH, WARM, PROFESSIONAL ===== */
+﻿/* ===== VARIABLES - RICH, WARM, PROFESSIONAL ===== */
 :root {
     --primary: #c9773e;
     --primary-dark: #9b4e1f;
@@ -25,6 +25,56 @@
     --transition-snap: all 0.3s ease-out;
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Montserrat', sans-serif;
+
+    /* ---------------------------
+       CONTROLS (edit these values)
+       ---------------------------
+       --rounded-image-width        : visual width of the image (e.g. 320px, 40vw, 100%)
+       --rounded-image-height       : visual height of the image (use px for exact calc, or `auto` for responsive)
+       --rounded-image-abs-top     : vertical offset (negative = move up, positive = move down)
+       --rounded-image-min-height  : computed value that reserves vertical space so other content below (like .features-grid) doesn't get overlapped
+       --rounded-image-safety-pad  : extra spacing (small buffer) you probably want to keep
+    */
+    --rounded-image-width: 320px;        /* CONTROL: change width here */
+    --rounded-image-height: 260px;       /* CONTROL: change height here (use px for reliable calculation) */
+    --rounded-image-abs-top: -20px;      /* CONTROL: negative => image moves up; positive => image moves down */
+
+    /* Safety padding you can tweak (adds spare space to avoid precise edge overlaps) */
+    --rounded-image-safety-pad: 16px;    /* CONTROL: extra spacing to add on top of computed height */
+
+    /* ---------------------------------------------------------
+       CALCULATION (how to compute the min-height for the container)
+       ---------------------------------------------------------
+       Let H = numeric image height in px (e.g. 260)
+       Let T = numeric top offset in px (negative if moved up, e.g. -20)
+
+       Compute image bottom relative to the container top:
+         bottom = T + H
+
+       If bottom < 0 (rare — image fully above container top),
+         fallbackBottom = H  (use H so container still reserves reasonable room)
+
+       Else use bottom.
+
+       Then:
+         rounded-container-min-height = max(bottom, H) + safetyPad
+
+       Examples:
+       - Example 1 (current variables):
+         H = 260, T = -20
+         bottom = -20 + 260 = 240
+         max(bottom, H) = max(240, 260) = 260
+         min-height = 260 + 16 (safety) = 276px
+
+       - Example 2 (image moved down 12px):
+         H = 260, T = 12
+         bottom = 12 + 260 = 272
+         max(bottom, H) = 272
+         min-height = 272 + 16 = 288px
+
+       Set the CSS variable below to the computed px value.
+    */
+    --rounded-image-min-height: 276px;   /* EDIT: set using the formula above (example result for H=260, T=-20) */
 }
 
 /* ===== RESET & BASE ===== */
@@ -102,7 +152,7 @@ main {
 
 .preloader-inner {
     text-align: center;
-    animation: gentlePulse 1.5s ease-in-out infinite;
+    animation: gentlePulse 2s ease-in-out infinite;
 }
 
 @keyframes gentlePulse {
@@ -782,17 +832,30 @@ section {
 
 .about-image {
     position: relative;
+    overflow: visible;                     /* keep visible so badges/shadows show */
+    min-height: var(--rounded-image-min-height); /* CONTROL: set via the computed variable above */
+    /* vertical visual offset for image & badge (desktop-only override below) */
+    --about-image-offset-y: 0px;
 }
 
 .rounded-image {
+    /* Ensure the rounded image displays normally inside flow. Use a translateY
+       based on --about-image-offset-y so we can move the image visually on desktop
+       without affecting layout. Hover preserves the same Y-offset while scaling. */
+    position: relative;
     width: 100%;
+    height: auto;
+    object-fit: cover;
     border-radius: 35px;
     box-shadow: var(--shadow-lg);
     transition: var(--transition);
+    display: block;
+    z-index: 1;
+    transform: translateY(var(--about-image-offset-y));
 }
 
 .rounded-image:hover {
-    transform: scale(1.02);
+    transform: translateY(var(--about-image-offset-y)) scale(1.02);
     box-shadow: var(--shadow-xl);
 }
 
@@ -811,6 +874,7 @@ section {
     box-shadow: 0 20px 35px rgba(155, 78, 31, 0.4);
     border: 4px solid var(--gold);
     animation: badgePulse 2s ease-in-out infinite;
+    z-index: 5; /* ensure badge sits above the image */
 }
 
 @keyframes badgePulse {
@@ -829,6 +893,17 @@ section {
     font-size: 13px;
     text-align: center;
     color: #ffe6c7;
+}
+
+/* Desktop-specific small upward shift for image and badge to improve composition */
+@media (min-width: 1025px) {
+    .about-image {
+        --about-image-offset-y: -16px; /* CONTROL: move image and badge up on desktop */
+    }
+
+    .experience-badge {
+        transform: translateY(var(--about-image-offset-y));
+    }
 }
 
 /* ===== EXPERTS CAROUSEL ===== */
@@ -1530,8 +1605,12 @@ section {
 
 .faq-contact .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    /* Give priority to the locations/contacts column (right) so images get more horizontal space.
+       Left column (FAQ) reduced by ~30% compared to equal split. */
+    grid-template-columns: 35% 65%; /* CONTROL: change percentages to adjust column priority */
+    /* CONTROL: horizontal gap between FAQ column and contact-wrapper (reduce to bring them closer) */
+    --faq-contact-gap: 15px; /* default reduced gap */
+    gap: var(--faq-contact-gap);
 }
 
 .faq-grid h2,
@@ -1542,15 +1621,28 @@ section {
     font-family: var(--font-heading);
 }
 
+/* FAQ sizing control: change this value to adjust FAQ column width on desktop */
+.faq-grid {
+    --faq-button-width: 320px; /* can be px or % */
+    width: var(--faq-button-width);
+    max-width: 100%;
+    margin-right: 0;
+}
+
 .faq-accordion {
     background: var(--white);
     border-radius: 32px;
+    /* Fill the faq-grid container width (controlled via --faq-button-width) */
+    width: 100%;
+    padding: 0; /* keep spacing controlled by .faq-question / .faq-answer */
     overflow: hidden;
     box-shadow: var(--shadow-lg);
 }
 
 .faq-item {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .faq-item:last-child {
@@ -1558,8 +1650,9 @@ section {
 }
 
 .faq-question {
+    /* Use full width of the faq-grid container (controlled by --faq-button-width) */
     width: 100%;
-    padding: 22px 28px;
+    padding: 22px 18px 22px 28px; /* left padding increased for text indentation */
     background: var(--white);
     border: none;
     text-align: left;
@@ -1583,35 +1676,95 @@ section {
     color: var(--white);
 }
 
-.faq-question i:first-child {
-    margin-right: 12px;
-    color: var(--gold);
+/* FAQ accordion: ensure animated collapse/expand and chevron rotation */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.36s ease;
+    will-change: max-height;
 }
 
-.faq-question.active i:first-child {
-    color: var(--white);
-}
-
+/* Rotate chevron when question has .active */
 .faq-question .fa-chevron-down {
-    transition: transform 0.3s ease;
+    transition: transform 0.28s ease;
+    transform-origin: center;
+    /* CONTROL: FAQ chevron color (set to orange/gold) */
+    color: var(--primary);
 }
 
 .faq-question.active .fa-chevron-down {
     transform: rotate(180deg);
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    background: var(--cream);
+    /* When question is active (dark background), make chevron visible in white */
+    color: var(--white);
 }
 
 .faq-answer p {
-    padding: 0 28px 28px 28px;
+    /* More breathing room inside the answer area to avoid vertical cramping */
+    padding: 18px 24px 22px 24px;
     color: var(--text-dark);
-    line-height: 1.7;
+    line-height: 1.9;
     font-size: 15px;
+}
+
+/* ===== FAQ/CONTACT overflow & alignment fixes =====
+   - Prevent the FAQ/Contact grid from causing horizontal overflow.
+   - Allow children to shrink (min-width: 0) so long content or carousels don't force the column wider than the page.
+   - Constrain location carousel containers and slides to the parent width.
+*/
+.faq-contact .container {
+    /* ensure children cannot force the container wider than viewport */
+    overflow: hidden;
+}
+
+.faq-contact .faq-grid,
+.faq-contact .contact-wrapper {
+    /* Allow grid/flex children to shrink below their intrinsic min width */
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.locations-carousel-outer,
+.locations-carousel-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden; /* clip any sliding track overflow */
+    position: relative; /* ensure absolutely positioned children (if any) are anchored here */
+    box-sizing: border-box;
+}
+
+.locations-carousel-track {
+    display: flex;
+    /* width must be able to hold all slides side-by-side. Using max-content
+       allows the track to naturally size to (numSlides * 100%) so translateX
+       based animation works as intended. */
+    /* width is set dynamically by JS to (totalSlides * 100)% — keep auto here to avoid layout conflicts */
+    width: auto;
+    transition: transform 0.5s ease;
+    box-sizing: border-box;
+}
+
+.location-slide {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    .faq-contact .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .locations-carousel-outer,
+    .locations-carousel-container {
+        overflow: hidden;
+    }
+
+    /* On small screens make the FAQ full width for readability */
+    .faq-grid {
+        width: 100%;
+    }
+    .faq-accordion {
+        width: 100%;
+    }
 }
 
 .contact-info-grid {
@@ -1628,7 +1781,8 @@ section {
     text-align: center;
     transition: var(--transition);
     border: 1px solid rgba(212, 175, 55, 0.2);
-    box-shadow: var(--shadow-sm);
+    /* Remove heavy shadow effect for a cleaner look; set to none to avoid vertical striping */
+    box-shadow: none;
 }
 
 .contact-card:hover {
@@ -1669,7 +1823,8 @@ section {
     background: var(--white);
     padding: 38px;
     border-radius: 35px;
-    box-shadow: var(--shadow-lg);
+    /* Remove large form shadow to prevent visible side shading */
+    box-shadow: none;
 }
 
 .form-row {
@@ -2920,31 +3075,143 @@ section {
     color: #b59868;
 }
 
-@media (max-width: 768px) {
-    .outreach-section {
-        padding: 50px 0;
-    }
-    .outreach-grid {
-        gap: 25px;
-        grid-template-columns: 1fr;
-    }
-    .outreach-card-image-container {
-        height: 140px;
-    }
-    .outreach-icon {
-        font-size: 46px;
-    }
-    .outreach-card-body {
-        padding: 20px;
+/* Experts overlay nav placed on top of expert image (left & right).
+   - Hidden on touch devices (pointer: coarse) and small viewports.
+   - Visible on desktop only when hovering the image (like the social icons).
+   - Centered vertically relative to the image.
+*/
+
+/* Base styles for the overlay buttons */
+.expert-overlay-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;               /* CONTROL: button size */
+    height: 48px;              /* CONTROL: button size */
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--gold);
+    border: 1px solid rgba(212,175,55,0.25);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    opacity: 0;                /* hidden by default */
+    pointer-events: none;      /* disabled until visible */
+    transition: var(--transition);
+}
+
+/* left and right positions */
+.expert-overlay-nav.left {
+    left: 12px;                /* CONTROL: distance from left edge of image */
+}
+
+.expert-overlay-nav.right {
+    right: 12px;               /* CONTROL: distance from right edge of image */
+}
+
+/* Hover reveal: show when the image wrapper is hovered (desktop) */
+.expert-image-wrapper:hover .expert-overlay-nav {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) scale(1.02);
+}
+
+/* Keep overlay visually subtle until hover */
+.expert-overlay-nav:hover {
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: var(--shadow-md);
+}
+
+/* Hide global bottom controls where they used to live (we'll use overlay buttons) */
+.experts-carousel-controls {
+    display: none !important;
+}
+
+/* On touch devices (phones & many tablets) hide overlay controls — allow swipe instead.
+   We also hide for narrow viewports for safety.
+*/
+@media (pointer: coarse), (max-width: 1024px) {
+    .expert-overlay-nav {
+        display: none !important;
     }
 }
 
-/* ===== PRINT STYLES ===== */
-@media print {
-    .header, .footer, .back-to-top, .hero-buttons, .btn, .contact-form,
-    .scroll-indicator, .cta-section, .preloader, .video-tour, .side-menu, .overlay {
-        display: none !important;
+/* Ensure the image wrapper establishes a positioning context (it already does),
+   but make sure overlay is positioned relative to image area precisely. */
+.expert-image-wrapper {
+    position: relative;
+    overflow: visible;
+    /* ===== FIX: FAQ / CONTACT overflow and centering =====
+       Purpose:
+       - Prevent .faq-contact content from overflowing right.
+       - Allow grid children to shrink/wrap (min-width:0).
+       - Constrain location carousel and slides to container width.
+       Edit notes:
+       - Change breakpoint in the media query if you want single-column behavior earlier/later.
+       - Adjust gap values if you need more or less spacing between columns.
+    */
+
+    .faq-contact .container {
+        /* preserve the two-column layout but ensure overflow is clipped */
+        display: grid;                      /* already set elsewhere — kept for clarity */
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+        overflow: hidden;                   /* PREVENT: children overflowing the section */
     }
-    body { padding: 0; background: white; }
-    section { page-break-inside: avoid; }
+
+    /* Allow the two grid children to shrink so long content doesn't force overflow */
+    .faq-contact .faq-grid,
+    .faq-contact .contact-wrapper {
+        min-width: 0;                       /* IMPORTANT: prevents intrinsic-min-width overflow in grid/flex items */
+        box-sizing: border-box;
+    }
+
+    /* Constrain the locations carousel to the container width and clip slides */
+    .locations-carousel-outer,
+    .locations-carousel-container {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;                   /* PREVENT: sliding track from spilling outside */
+        box-sizing: border-box;
+    }
+
+    /* Track must respect container width; slides will occupy 100% of the visible area */
+    .locations-carousel-track {
+        display: flex;
+        width: 100%;
+        transition: transform 0.5s ease;
+        box-sizing: border-box;
+    }
+
+    /* Each slide occupies full container width and cannot overflow */
+    .location-slide {
+        flex: 0 0 100%;
+        box-sizing: border-box;
+    }
+
+    /* Make sure inner slide elements do not add unexpected horizontal size */
+    .location-slide-inner,
+    .location-page-cover,
+    .location-page-details {
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    /* Small screens: stack vertically (single column) to avoid overflow on narrow viewports */
+    @media (max-width: 900px) {
+        .faq-contact .container {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        /* ensure carousel stays clipped on small devices too */
+        .locations-carousel-outer,
+        .locations-carousel-container {
+            overflow: hidden;
+        }
+    }
 }
