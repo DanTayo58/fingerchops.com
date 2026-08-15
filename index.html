@@ -973,6 +973,9 @@
             prevBtn.className = 'expert-overlay-nav left';
             prevBtn.setAttribute('aria-label', 'Previous expert');
             prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            prevBtn.tabIndex = 0;
+            prevBtn.setAttribute('aria-hidden', 'false');
+            console.debug('Created prevBtn for slide', slide);
             prevBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 goToSlide(currentIndex - 1);
@@ -984,6 +987,9 @@
             nextBtn.className = 'expert-overlay-nav right';
             nextBtn.setAttribute('aria-label', 'Next expert');
             nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            nextBtn.tabIndex = 0;
+            nextBtn.setAttribute('aria-hidden', 'false');
+            console.debug('Created nextBtn for slide', slide);
             nextBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 goToSlide(currentIndex + 1);
@@ -999,14 +1005,18 @@
                 if (e.target.closest('.expert-overlay-nav')) return;
                 // toggle a class that reveals overlay controls
                 imgWrap.classList.toggle('show-overlay');
+                console.debug('Toggled show-overlay on wrapper:', imgWrap.classList.contains('show-overlay'));
             }, { passive: true });
+        });
 
-            // Close overlay when tapping elsewhere on document
-            document.addEventListener('click', function (ev) {
-                if (!imgWrap.contains(ev.target)) {
-                    imgWrap.classList.remove('show-overlay');
-                }
-            });
+        // Delegated click handler: close overlays when clicking outside any wrapper
+        document.addEventListener('click', function (ev) {
+            const imgWrap = ev.target.closest('.expert-image-wrapper');
+            if (!imgWrap) {
+                // clicked outside any wrapper -> close any open overlays
+                document.querySelectorAll('.expert-image-wrapper.show-overlay').forEach(w => w.classList.remove('show-overlay'));
+            }
+            // if clicked inside a wrapper, let the per-wrapper click handler manage toggling
         });
 
         // Initialize carousel
@@ -1082,23 +1092,36 @@
             goToLocSlide(0);
         })();
 
-        /* SAFE: register preloader hide immediately so load won't hang if a later script errors.
-           Uses the same visual hide class used elsewhere (`.hide`) and then removes the element. */
-        window.addEventListener('load', function () {
-            try {
-                const preloader = document.getElementById('preloader');
-                if (preloader) {
-                    preloader.classList.add('hide'); // uses existing CSS .preloader.hide
-                    // remove element after the animation completes
+        /* Preloader helper: hide preloader either on window.load or after a timeout
+           so users on slow networks don't wait indefinitely. You can adjust
+           -- MAX_PRELOADER_TIMEOUT below (milliseconds). */
+        (function initPreloaderGuard() {
+            const MAX_PRELOADER_TIMEOUT = 20000; // ms - adjust to preferred maximum wait time
+            function hidePreloader() {
+                try {
+                    const preloader = document.getElementById('preloader');
+                    if (!preloader) return;
+                    preloader.classList.add('hide'); // existing CSS handles fade
                     setTimeout(() => {
                         if (preloader && preloader.parentNode) preloader.parentNode.removeChild(preloader);
                     }, 700);
+                } catch (err) {
+                    console.error('Preloader hide error:', err);
                 }
-            } catch (err) {
-                // swallow any error to avoid interfering with other scripts
-                console.error('Preloader hide error:', err);
             }
-        });
+
+            // Primary: hide after full window load when available
+            window.addEventListener('load', hidePreloader);
+
+            // Fallback: ensure preloader doesn't persist longer than MAX_PRELOADER_TIMEOUT
+            document.addEventListener('DOMContentLoaded', function () {
+                setTimeout(() => {
+                    // If still present, hide it to avoid long waiting times
+                    const preloader = document.getElementById('preloader');
+                    if (preloader) hidePreloader();
+                }, MAX_PRELOADER_TIMEOUT);
+            });
+        })();
 
         // FAQ accordion — robust delegated handler (replace older .faq-question click code)
 (function initFaqAccordion() {

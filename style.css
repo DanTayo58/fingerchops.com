@@ -940,7 +940,7 @@ section {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 20;
+    z-index: 60;
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -961,7 +961,7 @@ section {
 .expert-overlay-nav.right { right: 10px; }
 
 /* Reveal on hover for non-touch devices */
-.expert-image-wrapper:hover .expert-overlay-nav { opacity: 1; pointer-events: auto; transform: translateY(-50%) scale(1.02); }
+.expert-image-wrapper:hover .expert-overlay-nav { opacity: 0.25; pointer-events: auto; transform: translateY(-50%) scale(1.02); }
 
 /* On touch devices show the overlay nav so users can tap (no hover) */
 @media (pointer: coarse), (max-width: 1024px) {
@@ -973,6 +973,28 @@ section {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(-50%) scale(1.02);
+    background: rgba(255,255,255,0.5) !important;
+    color: rgba(212,175,55,0.5) !important;
+}
+
+/* Force visibility when toggled or on touch devices — use !important to override any conflicting rules */
+.expert-image-wrapper.show-overlay .expert-overlay-nav,
+.expert-image-wrapper:hover .expert-overlay-nav {
+    display: flex !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+}
+
+@media (pointer: coarse), (max-width: 1024px) {
+    .expert-overlay-nav {
+        display: flex !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        visibility: visible !important;
+        background: rgba(255,255,255,0.5) !important;
+        color: rgba(212,175,55,0.5) !important;
+    }
 }
 
 .experts-carousel-track {
