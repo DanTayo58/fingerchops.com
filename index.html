@@ -223,7 +223,7 @@
                     <span class="section-subtitle">Meet Our Team</span>
                     <h2>Our Product Experts</h2>
                     <div class="divider"><span class="divider-line"></span><i class="fas fa-users"></i><span class="divider-line"></span></div>
-                    <p class="section-description">The great mind behind your daily products</p>
+                    <p class="section-description">The great mind behind your daily product goodness</p>
                 </div>
                 <div class="experts-carousel-container" data-aos="fade-up">
                     <div class="experts-carousel-track" id="expertsCarousel">
@@ -671,6 +671,68 @@
             }
         });
 
+        // Mobile menu: toggle and close handlers (works with click and touch)
+        (function initMobileMenu() {
+            const menu = document.getElementById('side-menu');
+            const overlay = document.getElementById('overlay');
+            const menuToggle = document.getElementById('menuToggle');
+            const closeMenuBtn = document.getElementById('closeMenu');
+            if (!menu || !overlay || !menuToggle) return;
+
+            function openMenu(e) {
+                if (e) e.preventDefault();
+                menu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu(e) {
+                if (e) e && e.preventDefault();
+                menu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuToggle.addEventListener('click', openMenu);
+            menuToggle.addEventListener('touchstart', function (e) { e.preventDefault(); openMenu(); }, { passive: false });
+            if (closeMenuBtn) {
+                closeMenuBtn.addEventListener('click', closeMenu);
+                closeMenuBtn.addEventListener('touchstart', function (e) { e.preventDefault(); closeMenu(); }, { passive: false });
+            }
+            overlay.addEventListener('click', closeMenu);
+        })();
+
+        // Back to top: ensure works for click and touch on all devices
+        (function initBackToTop() {
+            const backBtn = document.getElementById('backToTop');
+            if (!backBtn) return;
+            function scrollTopHandler(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            backBtn.addEventListener('click', scrollTopHandler, { passive: false });
+            backBtn.addEventListener('touchstart', scrollTopHandler, { passive: false });
+        })();
+
+        // Notification click: animate to center and back
+        (function initNotificationCenter() {
+            const notification = document.getElementById('notification');
+            if (!notification) return;
+            let animating = false;
+            notification.addEventListener('click', function (e) {
+                if (animating) return;
+                animating = true;
+                // move to center
+                notification.classList.add('centered');
+                // return after 1.2s
+                setTimeout(() => {
+                    notification.classList.remove('centered');
+                    // brief delay to allow reverse animation
+                    setTimeout(() => { animating = false; }, 500);
+                }, 1200);
+            });
+        })();
+
         // Bread carousel data and interactive bundle calculator
         const breadCarousel = document.getElementById('breadCarousel');
         if (breadCarousel) {
@@ -930,6 +992,21 @@
             // Append buttons to the image wrapper (positioned overlay)
             imgWrap.appendChild(prevBtn);
             imgWrap.appendChild(nextBtn);
+
+            // Toggle overlay visibility on click/touch (useful for mobile where hover isn't available)
+            imgWrap.addEventListener('click', function (e) {
+                // if clicking the nav button itself let the button handler manage navigation
+                if (e.target.closest('.expert-overlay-nav')) return;
+                // toggle a class that reveals overlay controls
+                imgWrap.classList.toggle('show-overlay');
+            }, { passive: true });
+
+            // Close overlay when tapping elsewhere on document
+            document.addEventListener('click', function (ev) {
+                if (!imgWrap.contains(ev.target)) {
+                    imgWrap.classList.remove('show-overlay');
+                }
+            });
         });
 
         // Initialize carousel

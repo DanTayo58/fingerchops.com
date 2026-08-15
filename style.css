@@ -345,6 +345,17 @@ main {
     display: none;
 }
 
+/* Show mobile menu icon on smaller viewports */
+@media (max-width: 1024px) {
+    .menu-icon {
+        display: block;
+    }
+    /* Hide desktop nav on mobile for clarity */
+    .desktop-nav {
+        display: none !important;
+    }
+}
+
 .hamburger-line {
     width: 100%;
     height: 2px;
@@ -919,6 +930,49 @@ section {
     border-radius: 48px;
     box-shadow: var(--shadow-xl);
     background: var(--white);
+}
+
+/* Overlay nav buttons placed on the expert image (left/right). 
+   - Desktop: visible on image hover (like social icons).
+   - Mobile (pointer:coarse): visible by default so users can tap to change slides.
+*/
+.expert-overlay-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--gold);
+    border: 1px solid rgba(212,175,55,0.18);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.expert-overlay-nav.left { left: 10px; }
+.expert-overlay-nav.right { right: 10px; }
+
+/* Reveal on hover for non-touch devices */
+.expert-image-wrapper:hover .expert-overlay-nav { opacity: 1; pointer-events: auto; transform: translateY(-50%) scale(1.02); }
+
+/* On touch devices show the overlay nav so users can tap (no hover) */
+@media (pointer: coarse), (max-width: 1024px) {
+    .expert-overlay-nav { opacity: 1; pointer-events: auto; }
+}
+
+/* When a wrapper has explicit show state (e.g. clicked on mobile), reveal controls */
+.expert-image-wrapper.show-overlay .expert-overlay-nav {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) scale(1.02);
 }
 
 .experts-carousel-track {
@@ -2066,7 +2120,7 @@ section {
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
-    z-index: 1000;
+    z-index: 3000;
 }
 
 .back-to-top.show {
@@ -2093,6 +2147,13 @@ section {
     z-index: 2000;
     transition: transform 0.4s ease;
     border-left: 5px solid var(--gold);
+}
+
+/* Notification centered state */
+.notification.centered {
+    bottom: auto;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .notification.show {
