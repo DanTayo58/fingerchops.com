@@ -46,6 +46,7 @@
 
     <!-- HEADER -->
     <header class="header" id="header">
+        <div class="scroll-progress-line" id="scrollProgressLine"></div>
         <div class="header-container">
             <div class="menu-icon" id="menuToggle" aria-label="Menu" role="button" tabindex="0">
                 <div class="hamburger-line"></div>
@@ -70,8 +71,8 @@
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">Our Story</a></li>
                     <li><a href="#featured" class="nav-link">Our Breads</a></li>
+                    <li><a href="#experts" class="nav-link">Our Team</a></li>
                     <li><a href="#portfolio" class="nav-link">Our Heart</a></li>
-                    <li><a href="#experts" class="nav-link">Our Experts</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
@@ -97,12 +98,9 @@
             <li><a href="#home" class="menu-link"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#about" class="menu-link"><i class="fas fa-info-circle"></i> Our Story</a></li>
             <li><a href="#featured" class="menu-link"><i class="fas fa-bread-slice"></i> Our Breads</a></li>
+            <li><a href="#experts" class="menu-link"><i class="fas fa-users"></i> Our Experts</a></li>
             <li><a href="#portfolio" class="menu-link"><i class="fas fa-heart"></i> Our Heart</a></li>
-            <li><a href="#experts" class="menu-link"><i class="fas fa-users"></i> Our experts</a></li>
-            <li><a href="#process" class="menu-link"><i class="fas fa-utensils"></i> Baking Process</a></li>
             <li><a href="#contact" class="menu-link"><i class="fas fa-envelope"></i> Contact Us</a></li>
-            <li class="divider"></li>
-            <li><a href="#locations" class="menu-link"><i class="fas fa-map-marker-alt"></i> Our Locations</a></li>
         </ul>
         <div class="side-menu-footer">
             <div class="social-links">
@@ -143,7 +141,7 @@
                         <img src="experts/products.png" alt="Freshly baked artisanal bread" class="bread-image">
                         <div class="image-badge">
                             <span class="badge-text">Baked Fresh Daily</span>
-                            <span class="badge-time">No Preservatives</span>
+                            <span class="badge-time">Delightful taste</span>
                         </div>
                     </div>
                 </div>
@@ -168,8 +166,21 @@
                 </div>
                 <div class="about-content">
                     <div class="about-text" data-aos="fade-right">
-                        <p class="lead">Built in Delta State, growing across Nigeria, and driven by a committment to quality.</p>
-                        <p>Founded in 2009, Finger Chops Ventures began as a food business specializing in indoor and outdoor catering services before expanding into full scale bakery operations to serve a wider customer market. <br>Established in 2009 and fully incorporated with corporate affairs commission (CAC), the company has grown into a trusted producer of premium quality bread serving individual businesses and institutions across Delta and neighboring states in the Niger Delta region. Through continuous investment in mechanized equipment, skilled personnel and high quality ingredients, Finger Chops bakery continuously delivers fresh, nutritious, and hygienically packaged bread. <br>The company's long term vision is to transit into one of Africa's leading food manufacuting companies, renowed for produing quality and nutritious products from locally sourced agricultural commodities, while competing globally through operational excellence, innovations, and unwavering committment to quality. Today, we're proud to serve Warri, Sapele, Asaba, Benin, Bayelsa, Port Harcourt, and Anambra</p>
+                        <p class="lead">Built in Delta State, growing across Nigeria, and driven by a commitment to quality.</p>
+                        <div class="about-paragraph-wrapper" id="aboutParagraphWrapper">
+                            <div class="about-p-content">
+                                Founded in 2009, Finger Chops Ventures began as a food business specializing in indoor and outdoor catering services before expanding into full scale bakery operations to serve a wider customer market. Established in 2009 and fully incorporated with the Corporate Affairs Commission (CAC), the company has grown into a trusted producer of premium quality bread.
+                                <br><br>
+                                Serving individual businesses and institutions across Delta and neighboring states in the Niger Delta region, Finger Chops continuously delivers fresh, nutritious, and hygienically packaged bread through continuous investment in mechanized equipment, skilled personnel, and high-quality ingredients.
+                                <br><br>
+                                The company's long-term vision is to transition into one of Africa's leading food manufacturing companies, renowned for producing quality and nutritious products from locally sourced agricultural commodities, while competing globally through operational excellence, innovations, and unwavering commitment to quality. Today, we are proud to serve Warri, Sapele, Asaba, Benin, Bayelsa, Port Harcourt, and Anambra.
+                            </div>
+                        </div>
+                        <div class="read-more-wrapper">
+                            <button class="btn-read-more" id="aboutReadMoreBtn" aria-expanded="false" aria-label="Toggle story description" title="Read more">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
                         <div class="features-grid">
                             <div class="feature"><i class="fas fa-check-circle"></i><span>100% Approved Natural Ingredients</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i><span>SON Approved</span></div>
@@ -177,15 +188,19 @@
                             <div class="feature"><i class="fas fa-check-circle"></i><span>Modern Hygiene Standards</span></div>
                         </div>
                     </div>
-                    <div class="about-image" data-aos="fade-left">
-                        <img src="experts/factory_about.png" alt="Our bakery interior" class="rounded-image">
-                        <div class="experience-badge"><span class="years">10+</span><span class="text">Years of Excellence</span></div>
+                    <div class="about-image-column" data-aos="fade-left">
+                        <div class="about-image-sticky">
+                            <div class="about-image">
+                                <img src="experts/factory_about.png" alt="Our bakery interior" class="rounded-image">
+                                <div class="experience-badge"><span class="years">10+</span><span class="text">Years of Excellence</span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- JOURNEY SECTION -->
+        <!-- JOURNEY SECTION (OUR LEGACY - PART OF OUR STORY) -->
         <section class="journey">
             <div class="container">
                 <div class="section-header" data-aos="fade-up"><span class="section-subtitle">Our Legacy</span><h2>10+ Years of Baking Excellence</h2><div class="divider"><span class="divider-line"></span><i class="fas fa-scroll"></i><span class="divider-line"></span></div></div>
@@ -196,7 +211,7 @@
                         <div class="timeline-item"><div class="timeline-year">2026</div><div class="timeline-content"><h4>Present Day</h4><p>Serving 6+ states, loved by thousands</p></div></div>
                     </div>
                     <div class="story-card" id="storyCard" data-aos="fade-left">
-                        <div class="story-card-header"><i class="fas fa-book-open"></i><h3>Our Full Story</h3></div>
+                        <div class="story-card-header"><i class="fas fa-book-open"></i><h3>Experience our Journey</h3></div>
                         <div class="story-preview">
                             <p class="story-highlight">
                                 <strong>Vision:</strong> To have our tasty and nutritious baked goods on every tables of every home in Nigeria.<br><br><strong>Mission:</strong> To harness the power of food to connect people, cultures and create a better world for living.<br><br><strong>Core Values:</strong>
@@ -210,9 +225,58 @@
                             </p>
                         </div>
                     </div>
-
                 </div>
             </div>
+        </section>
+
+        <!-- VIDEO TOUR SECTION - UNDER OUR LEGACY -->
+        <section class="video-tour">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Behind the Scenes</span>
+                    <h2>An Indoor-backstage work-flow tour</h2>
+                    <div class="divider"><span class="divider-line"></span><i class="fas fa-video"></i><span class="divider-line"></span></div>
+                    <p class="section-description">Watch a quick video to experience our operational process - from dough to golden loaf</p>
+                </div>
+                <div class="video-wrapper" data-aos="zoom-in">
+                    <video class="tour-video" poster="logo.jpeg" controls>
+                        <source src="video.mp4" type="video/mp4">
+                        Your browser does not support the video tag. Please upgrade to view our baking tour.
+                    </video>
+                    <div class="video-caption"><i class="fas fa-play-circle"></i> Quick tour: Amazing craft & fresh daily baking</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED BREADS -->
+        <section id="featured" class="featured">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Our Specialties</span>
+                    <h2>Artisanal Bread Collection</h2>
+                    <div class="divider"><span class="divider-line"></span><i class="fas fa-bread-slice"></i><span class="divider-line"></span></div>
+                    <p class="section-description">Each loaf is crafted with time-honored techniques and the finest ingredients. Click the details button on any card to view description.</p>
+                </div>
+                <div class="bread-carousel-container">
+                    <div class="bread-carousel" id="breadCarousel"></div>
+                    <div class="carousel-hint">
+                        <span><i class="fas fa-hand-pointer"></i> Click Details to view profile</span>
+                        <span><i class="fas fa-pause-circle"></i> Hover to pause</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS SECTION (HOW WE BAKE - PART OF OUR BREADS) -->
+        <section id="process" class="process">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up"><span class="section-subtitle">How We Bake</span><h2>From Grain to Loaf</h2><div class="divider"><span class="divider-line"></span><i class="fas fa-bread-slice"></i><span class="divider-line"></span></div></div>
+                <div class="process-steps">
+                    <div class="step" data-aos="fade-up"><div class="step-icon"><i class="fas fa-seedling"></i><span class="step-number">01</span></div><h3>Select Grains</h3><p>Premium grains from trusted local farmers</p></div>
+                    <div class="step" data-aos="fade-up" data-aos-delay="100"><div class="step-icon"><i class="fas fa-clock"></i><span class="step-number">02</span></div><h3>Slow Fermentation</h3><p>24-hour natural fermentation for deep flavor</p></div>
+                    <div class="step" data-aos="fade-up" data-aos-delay="200"><div class="step-icon"><i class="fas fa-hands"></i><span class="step-number">03</span></div><h3>Hand-Shaped</h3><p>Expertly shaped by our master bakers</p></div>
+                    <div class="step" data-aos="fade-up" data-aos-delay="300"><div class="step-icon"><i class="fas fa-fire"></i><span class="step-number">04</span></div><h3>Stone-Baked</h3><p>Baked to golden perfection in stone ovens</p></div>
+                </div>
             </div>
         </section>
 
@@ -246,14 +310,7 @@
                                 <img src="experts/augustin_c_obiekea.png" alt="Mr. Obiekea" class="expert-image">
                                 <div class="expert-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
                             </div>
-                            <div class="expert-message"><i class="fas fa-quote-left quote-icon"></i><p class="message-text">"Integrity is the cornerstone of every audit we conduct. By ensuring transparency and accountability, we safeguard the trust that keeps Finger Chops thriving."</p><div class="expert-info"><h4>Augustin Obiekea</h4><p class="expert-title">Control Unit/Audit Unit</p></div></div>
-                        </div>
-                        <div class="expert-message-card">
-                            <div class="expert-image-wrapper">
-                                <img src="bread.jpeg" alt="Miss Anene" class="expert-image">
-                                <div class="expert-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
-                            </div>
-                            <div class="expert-message"><i class="fas fa-quote-left quote-icon"></i><p class="message-text">"Our people are the heart of Finger Chops, and when we invest in them, we invest in excellence. Together, we create a workplace that nourishes both talent and trust."</p><div class="expert-info"><h4>Thelma Anene</h4><p class="expert-title">Human Resources</p></div></div>
+                            <div class="expert-message"><i class="fas fa-quote-left quote-icon"></i><p class="message-text">"Integrity is the cornerstone of every audit we conduct. By ensuring transparency and accountability, we safeguard the trust that keeps Finger Chops thriving."</p><div class="expert-info"><h4>Augustine Obiekea</h4><p class="expert-title">Control Unit/Audit Unit</p></div></div>
                         </div>
                         <div class="expert-message-card">
                             <div class="expert-image-wrapper">
@@ -264,10 +321,31 @@
                         </div>
                         <div class="expert-message-card">
                             <div class="expert-image-wrapper">
+                                <img src="bread.jpeg" alt="Miss Anene" class="expert-image">
+                                <div class="expert-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
+                            </div>
+                            <div class="expert-message"><i class="fas fa-quote-left quote-icon"></i><p class="message-text">"Our people are the heart of Finger Chops, and when we invest in them, we invest in excellence. Together, we create a workplace that nourishes both talent and trust."</p><div class="expert-info"><h4>Thelma Anene</h4><p class="expert-title">Human Resources Head</p></div></div>
+                        </div>
+                        <div class="expert-message-card">
+                            <div class="expert-image-wrapper">
+                                <img src="experts/christabel_etu.jpeg" alt="Miss. Christabel" class="expert-image">
+                                <div class="expert-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
+                            </div>
+                            <div class="expert-message"><i class="fas fa-quote-left quote-icon"></i><p class="message-text">"Quality is at the heart of everything we do at Finger Chops. Our commitment is to ensure that every product that leaves our facility reflects excellence, consistency, safety, and the trust our customers place in us. <br>We do not simply inspect quality, we build it into every process, every product, and every decision. Through accountability, continuous improvement, and a strong quality culture, we strive to make 'excellence' our everyday standard. Quality is not an option; it is who we are, it is our promise."</p><div class="expert-info"><h4>Etu Christabel</h4><p class="expert-title">Quality Assurance & Quality Control Head</p></div></div>
+                        </div>
+                        <div class="expert-message-card">
+                            <div class="expert-image-wrapper">
                                 <img src="experts/okhawere_justus.jpeg" alt="Mr. Justus" class="expert-image">
                                 <div class="expert-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
                             </div>
                             <div class="expert-message"><i class="fas fa-quote-left quote-icon"></i><p class="message-text">"Sound financial stewardship is the recipe for sustainable growth. Every balanced account ensures we can keep serving balanced meals to our communities."</p><div class="expert-info"><h4>Okhawere Justus</h4><p class="expert-title">Finance Manager</p></div></div>
+                        </div>
+                        <div class="expert-message-card">
+                            <div class="expert-image-wrapper">
+                                <img src="experts/augustin_c_obiekea.png" alt="Mr. Obiekea" class="expert-image">
+                                <div class="expert-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
+                            </div>
+                            <div class="expert-message"><i class="fas fa-quote-left quote-icon"></i><p class="message-text">"Integrity is the cornerstone of every audit we conduct. By ensuring transparency and accountability, we safeguard the trust that keeps Finger Chops thriving."</p><div class="expert-info"><h4>Augustine Obiekea</h4><p class="expert-title">Control Unit/Audit Unit</p></div></div>
                         </div>
                     </div>
                     <div class="experts-carousel-controls">
@@ -279,117 +357,7 @@
             </div>
         </section>
 
-        <!-- VIDEO TOUR SECTION - PLACED RIGHT UNDER EXPERTS CAROUSEL -->
-        <section class="video-tour">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <span class="section-subtitle">Behind the Scenes</span>
-                    <h2>Our Baking Process in Action</h2>
-                    <div class="divider"><span class="divider-line"></span><i class="fas fa-video"></i><span class="divider-line"></span></div>
-                    <p class="section-description">Watch a quick tour of our operational process — from dough to golden loaf</p>
-                </div>
-                <div class="video-wrapper" data-aos="zoom-in">
-                    <video class="tour-video" poster="logo.jpeg" controls>
-                        <source src="video.mp4" type="video/mp4">
-                        Your browser does not support the video tag. Please upgrade to view our baking tour.
-                    </video>
-                    <div class="video-caption"><i class="fas fa-play-circle"></i> Quick tour: Artisanal craft & fresh daily baking</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEATURED BREADS -->
-        <section id="featured" class="featured">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <span class="section-subtitle">Our Specialties</span>
-                    <h2>Artisanal Bread Collection</h2>
-                    <div class="divider"><span class="divider-line"></span><i class="fas fa-bread-slice"></i><span class="divider-line"></span></div>
-                    <p class="section-description">Each loaf is crafted with time-honored techniques and the finest ingredients</p>
-                </div>
-                <div class="bread-carousel-container">
-                    <div class="bread-carousel" id="breadCarousel"></div>
-                    <div class="carousel-hint"><i class="fas fa-pause-circle"></i><span>Hover to pause</span></div>
-
-                    <!-- CALCULATOR TOGGLE ACTION -->
-                    <div class="calculator-toggle-container" data-aos="fade-up">
-                        <button id="toggleCalculatorBtn" class="calc-toggle-btn">
-                            <i class="fas fa-calculator" id="calcBtnIcon"></i> <span id="calcBtnText">Open Interactive Bundle Calculator</span>
-                            <span class="calc-badge" id="calcCartBadge" style="display: none;">0</span>
-                        </button>
-                    </div>
-
-                    <!-- BUNDLE CALCULATOR WORKSPACE -->
-                    <div id="calculatorSection" class="calculator-section" data-aos="fade-up">
-                        <div class="calculator-header">
-                            <div class="calculator-header-left">
-                                <div class="calculator-header-icon">
-                                    <i class="fas fa-shopping-basket"></i>
-                                </div>
-                                <div style="text-align: left;">
-                                    <h3 class="calculator-header-title">Interactive Bundle Builder</h3>
-                                    <p class="calculator-header-subtitle">Dynamic pricing and bulk ration helper</p>
-                                </div>
-                            </div>
-                            <button onclick="clearCalculator()" class="calculator-btn-clear">
-                                <i class="fas fa-trash-alt"></i> Clear All Entries
-                            </button>
-                        </div>
-
-                        <!-- Empty State -->
-                        <div id="calculatorEmptyState" class="calculator-empty-state">
-                            <i class="fas fa-bread-slice calculator-empty-icon"></i>
-                            <p class="calculator-empty-title">Your Bundle Workspace is Empty</p>
-                            <p class="calculator-empty-desc">Use the quantity controllers (<strong style="color: #b59868;">-</strong> / <strong style="color: #b59868;">+</strong>) inside the scrolling bread catalog above to design your custom ration bundle!</p>
-                        </div>
-
-                        <!-- Active Item Breakdown -->
-                        <div id="calculatorActiveState" style="display: none;">
-                            <div class="calculator-table-container">
-                                <table class="calculator-table">
-                                    <thead>
-                                        <tr>
-                                            <th class="calculator-th">Product Choice</th>
-                                            <th class="calculator-th" style="text-align: center; width: 140px;">Quantity</th>
-                                            <th class="calculator-th" style="text-align: right; width: 120px;">Unit Price</th>
-                                            <th class="calculator-th" style="text-align: right; width: 140px;">Subtotal</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="calculatorItemsBody">
-                                        <!-- Javascript dynamically injected rows -->
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="calculator-summary-container">
-                                <div class="calculator-total-row">
-                                    <span class="calculator-total-label">Estimated Bundle Total:</span>
-                                    <span id="calculatorTotalPrice" class="calculator-total-price">₦0</span>
-                                </div>
-                                <div class="calculator-footer-info">
-                                    <i class="fas fa-info-circle" style="color: #b59868; margin-right: 5px;"></i> This interactive tool is for advertising and custom plan estimations. To submit official orders with actual branch stock matching, kindly <a href="#contact" style="color: #b59868; text-decoration: underline; font-weight: 600;">Contact us</a>!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROCESS SECTION -->
-        <section id="process" class="process">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up"><span class="section-subtitle">How We Bake</span><h2>From Grain to Loaf</h2><div class="divider"><span class="divider-line"></span><i class="fas fa-bread-slice"></i><span class="divider-line"></span></div></div>
-                <div class="process-steps">
-                    <div class="step" data-aos="fade-up"><div class="step-icon"><i class="fas fa-seedling"></i><span class="step-number">01</span></div><h3>Select Grains</h3><p>Premium grains from trusted local farmers</p></div>
-                    <div class="step" data-aos="fade-up" data-aos-delay="100"><div class="step-icon"><i class="fas fa-clock"></i><span class="step-number">02</span></div><h3>Slow Fermentation</h3><p>24-hour natural fermentation for deep flavor</p></div>
-                    <div class="step" data-aos="fade-up" data-aos-delay="200"><div class="step-icon"><i class="fas fa-hands"></i><span class="step-number">03</span></div><h3>Hand-Shaped</h3><p>Expertly shaped by our master bakers</p></div>
-                    <div class="step" data-aos="fade-up" data-aos-delay="300"><div class="step-icon"><i class="fas fa-fire"></i><span class="step-number">04</span></div><h3>Stone-Baked</h3><p>Baked to golden perfection in stone ovens</p></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- OUR HEART & OUTREACH (COMMUNITY FIRST) -->
+        <!-- OUR HEART & OUTREACH (COMMUNITY FIRST - MOVED AFTER EXPERTS) -->
         <section id="portfolio" class="outreach-section">
             <div class="container container-large">
                 <div class="section-header" data-aos="fade-up">
@@ -427,9 +395,9 @@
                         </div>
                         <div class="outreach-card-body">
                             <h3>C.A.C Certification</h3>
-                            <p>We are certified by the Corporate Affairs Commission (CAC)</p>
+                            <p>We are certified by the Corporate Affairs Commission (CAC). All our products and ingredients are duely certified by NAFDAC and SONS</p>
                             <div class="outreach-footer-note">
-                                <i class="fas fa-circle"></i> Over 3 certifications for our apprentices and staff
+                                <i class="fas fa-circle"></i> Over 3 certifications for assurance of quality and safety in production.
                             </div>
                         </div>
                     </div>
@@ -437,14 +405,14 @@
                     <!-- Feature 3: The 2 AM Devotion -->
                     <div class="outreach-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="outreach-card-image-container">
-                            <span class="outreach-badge">Our Devotion</span>
-                            <i class="fas fa-moon outreach-icon"></i>
+                            <span class="outreach-badge">QUALITY</span>
+                            <i class="fas fa-award outreach-icon"></i>
                         </div>
                         <div class="outreach-card-body">
-                            <h3>The 2:00 AM Rising</h3>
-                            <p>While the rest of the city rests, our warm lights are already on. At exactly 2:00 AM, our devoted team of 45 local bakers begins preparing the pure dough by hand, ensuring that the warm aroma of fresh, healthy bread greets our neighbors right at sunrise.</p>
+                            <h3>The standard we live by</h3>
+                            <p>Delivering uncompromised excellence in every single batch baked fresh each day.</p>
                             <div class="outreach-footer-note">
-                                <i class="fas fa-circle"></i> Honest labor, baked fresh for every home
+                                <i class="fas fa-circle"></i> Here at Finger Chops, QUALITY is our main priority.
                             </div>
                         </div>
                     </div>
@@ -452,7 +420,7 @@
             </div>
         </section>
 
-        <!-- TESTIMONIALS -->
+        <!-- TESTIMONIALS (UNDER OUR HEART) -->
         <section class="testimonials">
             <div class="container">
                 <div class="section-header" data-aos="fade-up"><span class="section-subtitle">Customer Love</span><h2>What Our Community Says</h2><div class="divider"><span class="divider-line"></span><i class="fas fa-bread-slice"></i><span class="divider-line"></span></div></div>
@@ -638,8 +606,28 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about"><div class="logo-circle small"><img src="logo.jpeg" alt="Finger Chops" class="footer-logo"></div><p>Putting our freshly baked goods on every table of every home in Nigeria.</p><div class="footer-social"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
-                <div class="footer-links"><h3>Quick Links</h3><ul><li><a href="#home">Home</a></li><li><a href="#about">Our Story</a></li><li><a href="#featured">Our Breads</a></li><li><a href="#experts">Our Team</a></li><li><a href="#contact">Contact</a></li></ul></div>
-                <div class="footer-hours"><h3>Opening Hours</h3><ul class="hours-list"><li><span>Monday - Saturday</span> 24 hours</li></div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#featured">Our Breads</a></li>
+                        <li><a href="#experts">Our Experts</a></li>
+                        <li><a href="#portfolio">Our Heart</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h3>Opening Hours</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday - Saturday:</span> 24 hours</li>
+                    </ul>
+                    <div class="footer-other-contact">
+                        <h4>Other Contact Info:</h4>
+                        <p><i class="fas fa-envelope"></i> <strong>email:</strong> <a href="mailto:info@fingerchopsng.com">info@fingerchopsng.com</a></p>
+                        <p><i class="fas fa-phone-alt"></i> <strong>direct line:</strong> <a href="tel:+2349074745747">+234 907 474 5747</a></p>
+                    </div>
+                </div>
             </div>
             <div class="footer-bottom"><p>Copyright &copy; 2026 Finger Chops Ventures Limited. All rights reserved. | Crafted with ❤️ in Nigeria</p></div>
         </div>
@@ -654,24 +642,104 @@
 
         const header = document.getElementById('header');
         const desktopNav = document.getElementById('desktopNav');
+        const scrollProgressLine = document.getElementById('scrollProgressLine');
+        const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
 
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 100) {
+        // Dynamic subsection mapping ensuring sub-sections maintain their parent nav anchor
+        function getTrackedSections() {
+            return [
+                { id: 'home', el: document.getElementById('home') },
+                { id: 'about', el: document.getElementById('about') },
+                { id: 'about', el: document.querySelector('.journey') },
+                { id: 'about', el: document.querySelector('.video-tour') },
+                { id: 'featured', el: document.getElementById('featured') },
+                { id: 'featured', el: document.getElementById('process') },
+                { id: 'experts', el: document.getElementById('experts') },
+                { id: 'portfolio', el: document.getElementById('portfolio') },
+                { id: 'portfolio', el: document.querySelector('.testimonials') },
+                { id: 'contact', el: document.getElementById('contact') },
+                { id: 'contact', el: document.querySelector('.cta-section') }
+            ];
+        }
+
+        function updateScrollIndicatorAndNav() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+
+            if (scrollProgressLine) {
+                scrollProgressLine.style.width = Math.min(100, Math.max(0, scrollPercent)) + '%';
+            }
+
+            if (scrollY > 90) {
                 header.classList.add('scrolled');
                 desktopNav.classList.add('visible');
             } else {
                 header.classList.remove('scrolled');
                 desktopNav.classList.remove('visible');
             }
-            const backToTop = document.getElementById('backToTop');
-            if (window.scrollY > 500) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-        });
 
-        // Mobile menu: toggle and close handlers (works with click and touch)
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                if (scrollY > 450) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            }
+
+            // Determine active section based on scroll position
+            let currentSectionId = 'home';
+            const offsetThreshold = 220;
+
+            // If reached the bottom of page, highlight contact
+            if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 70) {
+                currentSectionId = 'contact';
+            } else {
+                const tracked = getTrackedSections();
+                for (let i = 0; i < tracked.length; i++) {
+                    const sec = tracked[i];
+                    if (sec.el) {
+                        const top = sec.el.offsetTop;
+                        const height = sec.el.offsetHeight;
+                        if (scrollY + offsetThreshold >= top && scrollY + offsetThreshold < top + height) {
+                            currentSectionId = sec.id;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            navLinks.forEach(link => {
+                const target = link.getAttribute('href');
+                if (target === '#' + currentSectionId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateScrollIndicatorAndNav, { passive: true });
+        window.addEventListener('resize', updateScrollIndicatorAndNav);
+        document.addEventListener('DOMContentLoaded', updateScrollIndicatorAndNav);
+
+        // About Section: Read More toggle logic with centered chevron
+        (function initAboutReadMore() {
+            const readMoreBtn = document.getElementById('aboutReadMoreBtn');
+            const paragraphWrapper = document.getElementById('aboutParagraphWrapper');
+            if (!readMoreBtn || !paragraphWrapper) return;
+
+            readMoreBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const isExpanded = paragraphWrapper.classList.toggle('expanded');
+                readMoreBtn.classList.toggle('expanded', isExpanded);
+                readMoreBtn.setAttribute('aria-expanded', isExpanded);
+                readMoreBtn.setAttribute('title', isExpanded ? 'Read less' : 'Read more');
+            });
+        })();
+
+        // Mobile menu: toggle and close handlers
         (function initMobileMenu() {
             const menu = document.getElementById('side-menu');
             const overlay = document.getElementById('overlay');
@@ -687,7 +755,7 @@
             }
 
             function closeMenu(e) {
-                if (e) e && e.preventDefault();
+                if (e) e.preventDefault();
                 menu.classList.remove('active');
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
@@ -700,9 +768,14 @@
                 closeMenuBtn.addEventListener('touchstart', function (e) { e.preventDefault(); closeMenu(); }, { passive: false });
             }
             overlay.addEventListener('click', closeMenu);
+
+            // Close mobile menu on clicking nav link
+            menu.querySelectorAll('.menu-link').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
         })();
 
-        // Back to top: ensure works for click and touch on all devices
+        // Back to top
         (function initBackToTop() {
             const backBtn = document.getElementById('backToTop');
             if (!backBtn) return;
@@ -714,323 +787,278 @@
             backBtn.addEventListener('touchstart', scrollTopHandler, { passive: false });
         })();
 
-        // Notification click: animate to center and back
+        // Notification click
         (function initNotificationCenter() {
             const notification = document.getElementById('notification');
             if (!notification) return;
             let animating = false;
-            notification.addEventListener('click', function (e) {
+            notification.addEventListener('click', function () {
                 if (animating) return;
                 animating = true;
-                // move to center
                 notification.classList.add('centered');
-                // return after 1.2s
                 setTimeout(() => {
                     notification.classList.remove('centered');
-                    // brief delay to allow reverse animation
                     setTimeout(() => { animating = false; }, 500);
                 }, 1200);
             });
         })();
 
-        // Bread carousel data and interactive bundle calculator
-        const breadCarousel = document.getElementById('breadCarousel');
-        if (breadCarousel) {
+        // Bread carousel data & click dropdown details button
+        (function initBreadCarousel() {
+            const breadCarousel = document.getElementById('breadCarousel');
+            if (!breadCarousel) return;
+
             const breads = [
-                { name: 'Extra Large', price: '1620', img: 'experts/extra_large.jpeg' },
-                { name: 'Normal Large', price: '600', img: 'experts/normal_large.jpeg' },
-                { name: 'Economy Loaf', price: '550', img: 'experts/economy.jpeg' },
-                { name: 'Mixed Fruit Bread', price: '1680', img: 'experts/mixed_fruit.jpeg' },
-                { name: 'Small Large', price: '550', img: 'experts/small_large.jpeg' },
-                { name: 'Delight', price: '580', img: 'experts/delight.jpeg' },
-                { name: 'Mini', price: '580', img: 'experts/mini.jpeg' },
-                { name: 'Crown Delight', price: '620', img: 'experts/crown_delight.jpeg' },
-                { name: 'Wheat Bread', price: '750', img: 'experts/wheat.jpeg' }
+                {
+                    name: 'Extra Large',
+                    img: 'experts/extra_large.jpeg',
+                    desc: 'Our signature family-sized golden loaf, extra soft with a rich buttery crumb for hearty breakfasts.'
+                },
+                {
+                    name: 'Normal Large',
+                    img: 'experts/normal_large.jpeg',
+                    desc: 'The everyday household favorite — perfectly balanced texture, golden crust, and lasting freshness.'
+                },
+                {
+                    name: 'Economy Loaf',
+                    img: 'experts/economy.jpeg',
+                    desc: 'Wholesome, delicious, and budget-friendly daily loaf baked with pure high-grade flour.'
+                },
+                {
+                    name: 'Mixed Fruit Bread',
+                    img: 'experts/mixed_fruit.jpeg',
+                    desc: 'Infused with sweet candied fruits and warm spices, delivering a burst of gourmet flavor in every slice.'
+                },
+                {
+                    name: 'Small Large',
+                    img: 'experts/small_large.jpeg',
+                    desc: 'Ideal for couples and small families — delivers signature tenderness in a compact size.'
+                },
+                {
+                    name: 'Delight',
+                    img: 'experts/delight.jpeg',
+                    desc: 'Specially enriched sweet loaf with an irresistible melt-in-the-mouth texture.'
+                },
+                {
+                    name: 'Mini',
+                    img: 'experts/mini.jpeg',
+                    desc: 'Cute individual snack-sized loaves, freshly packaged for school lunchboxes and on-the-go snacking.'
+                },
+                {
+                    name: 'Crown Delight',
+                    img: 'experts/crown_delight.jpeg',
+                    desc: 'Our regal recipe with a glazed golden finish and ultra-silky crumb for special moments.'
+                },
+                {
+                    name: 'Wheat Bread',
+                    img: 'experts/wheat.jpeg',
+                    desc: '100% whole grain fiber-rich loaf crafted for healthy digestion, natural stamina, and deep nutty taste.'
+                }
             ];
 
-            // Global pricing and quantities state
-            window.breadPrices = {};
-            window.bundleQuantities = {};
-
-            breads.forEach(bread => {
-                window.breadPrices[bread.name] = parseInt(bread.price);
-                window.bundleQuantities[bread.name] = 0;
-            });
-
             let html = '';
-            for (let i = 0; i < 2; i++) {
-                breads.forEach(bread => {
-                    const cleanClassName = `qty-input-${bread.name.replace(/\s+/g, '-')}`;
+            // Duplicate array for smooth seamless loop
+            for (let loop = 0; loop < 2; loop++) {
+                breads.forEach((bread, idx) => {
                     html += `
-                        <div class="bread-item" style="cursor: default;">
-                            <div class="bread-img-container">
-                                <img src="${bread.img}" alt="${bread.name}">
-                            </div>
-                            <div class="bread-item-bottom" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                                <h3 style="font-size: 17px; margin-bottom: 2px;">${bread.name}</h3>
-                                <div class="bread-price" style="margin-top: 0; padding: 6px 16px; font-size: 14.5px;">₦${bread.price}</div>
-
-                                <!-- INTERACTIVE QUANTITY CONTROLLERS -->
-                                <div class="scrolling-shop-controls">
-                                    <button onclick="decreaseQty('${bread.name}', event)" class="scrolling-shop-btn-dec">-</button>
-                                    <input type="number" class="${cleanClassName} scrolling-shop-qty-val" min="0" value="0" onchange="updateQtyDirectly('${bread.name}', this.value, event)" onclick="event.stopPropagation()">
-                                    <button onclick="increaseQty('${bread.name}', event)" class="scrolling-shop-btn-inc">+</button>
-                                </div>
-                            </div>
-                        </div>`;
-
-
+                                <div class="bread-item" data-id="${idx}">
+                                    <div class="bread-img-container">
+                                        <img src="${bread.img}" alt="${bread.name}" loading="lazy">
+                                    </div>
+                                    <div class="bread-item-bottom">
+                                        <h3>${bread.name}</h3>
+                                        <button type="button" class="bread-details-btn" aria-label="Toggle details for ${bread.name}">
+                                            <span>Details</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                        <div class="bread-desc-wrapper">
+                                            <p class="bread-desc">${bread.desc}</p>
+                                        </div>
+                                    </div>
+                                </div>`;
                 });
             }
 
             breadCarousel.innerHTML = html;
 
             const carouselDiv = document.querySelector('.bread-carousel');
+
+            // Hover to pause
             if (carouselDiv) {
-                carouselDiv.addEventListener('mouseenter', () => carouselDiv.style.animationPlayState = 'paused');
-                carouselDiv.addEventListener('mouseleave', () => carouselDiv.style.animationPlayState = 'running');
+                carouselDiv.addEventListener('mouseenter', () => {
+                    if (!carouselDiv.classList.contains('user-paused')) {
+                        carouselDiv.style.animationPlayState = 'paused';
+                    }
+                });
+                carouselDiv.addEventListener('mouseleave', () => {
+                    if (!carouselDiv.classList.contains('user-paused')) {
+                        carouselDiv.style.animationPlayState = 'running';
+                    }
+                });
             }
 
-            // Sync quantity controllers
-            window.decreaseQty = function (name, e) {
-                if (e) e.stopPropagation();
-                const current = window.bundleQuantities[name] || 0;
-                if (current > 0) {
-                    window.updateQty(name, current - 1);
-                }
-            };
+            // Click dropdown button or card to expose details
+            const items = breadCarousel.querySelectorAll('.bread-item');
+            items.forEach(item => {
+                const btn = item.querySelector('.bread-details-btn');
 
-            window.increaseQty = function (name, e) {
-                if (e) e.stopPropagation();
-                const current = window.bundleQuantities[name] || 0;
-                window.updateQty(name, current + 1);
-            };
+                function toggleDetails(e) {
+                    e.stopPropagation();
+                    const wasExpanded = item.classList.contains('expanded');
 
-            window.updateQtyDirectly = function (name, val, e) {
-                if (e) e.stopPropagation();
-                let num = parseInt(val);
-                if (isNaN(num) || num < 0) {
-                    num = 0;
-                }
-                window.updateQty(name, num);
-            };
-
-            window.updateQty = function (name, qty) {
-                window.bundleQuantities[name] = qty;
-                const escapedName = name.replace(/\s+/g, '-');
-                const inputs = document.querySelectorAll(`.qty-input-${escapedName}`);
-                inputs.forEach(input => {
-                    input.value = qty;
-                });
-
-                // Refresh the calculator panel in real-time
-                updateCalculatorUI();
-            };
-
-            window.clearCalculator = function () {
-                for (let key in window.bundleQuantities) {
-                    window.bundleQuantities[key] = 0;
-                    const escapedName = key.replace(/\s+/g, '-');
-                    const inputs = document.querySelectorAll(`.qty-input-${escapedName}`);
-                    inputs.forEach(input => {
-                        input.value = 0;
+                    // Close any other open bread items
+                    items.forEach(other => {
+                        if (other !== item) {
+                            other.classList.remove('expanded');
+                        }
                     });
-                }
-                updateCalculatorUI();
-            };
 
-            function updateCalculatorUI() {
-                const itemsBody = document.getElementById('calculatorItemsBody');
-                const emptyState = document.getElementById('calculatorEmptyState');
-                const activeState = document.getElementById('calculatorActiveState');
-                const totalPriceEl = document.getElementById('calculatorTotalPrice');
-                const badgeEl = document.getElementById('calcCartBadge');
-
-                if (!itemsBody) return;
-
-                let itemsHtml = '';
-                let grandTotal = 0;
-                let totalQty = 0;
-
-                for (let name in window.bundleQuantities) {
-                    const qty = window.bundleQuantities[name];
-                    if (qty > 0) {
-                        totalQty += qty;
-                        const price = window.breadPrices[name] || 0;
-                        const subtotal = price * qty;
-                        grandTotal += subtotal;
-
-                        itemsHtml += `
-                            <tr class="calculator-row">
-                                <td data-label="Product Choice" class="calculator-td-product">
-                                    <span class="calculator-product-span">
-                                        <i class="fas fa-bread-slice" style="color: #b59868; font-size: 14px;"></i>
-                                        ${name}
-                                    </span>
-                                </td>
-                                <td data-label="Quantity" class="calculator-td-qty">
-                                    <div class="calculator-qty-badge">
-                                        <span class="calculator-qty-span">${qty}</span>
-                                    </div>
-                                </td>
-                                <td data-label="Unit Price" class="calculator-td-price">₦${price}</td>
-                                <td data-label="Subtotal" class="calculator-td-subtotal">₦${subtotal.toLocaleString()}</td>
-                            </tr>`;
+                    if (wasExpanded) {
+                        item.classList.remove('expanded');
+                        if (carouselDiv) {
+                            carouselDiv.classList.remove('user-paused');
+                            carouselDiv.style.animationPlayState = 'running';
+                        }
+                    } else {
+                        item.classList.add('expanded');
+                        if (carouselDiv) {
+                            carouselDiv.classList.add('user-paused');
+                            carouselDiv.style.animationPlayState = 'paused';
+                        }
                     }
                 }
 
-                if (totalQty > 0) {
-                    itemsBody.innerHTML = itemsHtml;
-                    emptyState.style.display = 'none';
-                    activeState.style.display = 'block';
-                    totalPriceEl.textContent = '₦' + grandTotal.toLocaleString();
-
-                    // Show count badge on toggle button
-                    badgeEl.style.display = 'inline-block';
-                    badgeEl.textContent = totalQty;
-                } else {
-                    emptyState.style.display = 'block';
-                    activeState.style.display = 'none';
-                    badgeEl.style.display = 'none';
-                    badgeEl.textContent = '0';
+                if (btn) {
+                    btn.addEventListener('click', toggleDetails);
                 }
-            }
 
-            // Calculator toggle event handler
-            const toggleBtn = document.getElementById('toggleCalculatorBtn');
-            const calcSection = document.getElementById('calculatorSection');
-            const calcBtnIcon = document.getElementById('calcBtnIcon');
-            const calcBtnText = document.getElementById('calcBtnText');
-
-            if (toggleBtn && calcSection) {
-                toggleBtn.addEventListener('click', function () {
-                    if (calcSection.style.display === 'none') {
-                        calcSection.style.display = 'block';
-                        calcBtnText.textContent = 'Close Bundle Calculator';
-                        calcBtnIcon.className = 'fas fa-times';
-                        toggleBtn.style.backgroundColor = '#4a3c31';
-                        // Scroll to workspace smoothly
-                        setTimeout(() => {
-                            calcSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                        }, 100);
-                    } else {
-                        calcSection.style.display = 'none';
-                        calcBtnText.textContent = 'Open Interactive Bundle Calculator';
-                        calcBtnIcon.className = 'fas fa-calculator';
-                        toggleBtn.style.backgroundColor = '#b59868';
+                item.addEventListener('click', function (e) {
+                    if (!e.target.closest('.bread-details-btn')) {
+                        toggleDetails(e);
                     }
                 });
-            }
-        }
+            });
+
+            // Clicking outside closes expanded bread cards
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.bread-item')) {
+                    items.forEach(item => item.classList.remove('expanded'));
+                    if (carouselDiv) {
+                        carouselDiv.classList.remove('user-paused');
+                        carouselDiv.style.animationPlayState = 'running';
+                    }
+                }
+            });
+        })();
 
         // Experts carousel
         document.addEventListener('DOMContentLoaded', function () {
-    const track = document.getElementById('expertsCarousel');
-    const dotsContainer = document.getElementById('expertsDots');
+            const track = document.getElementById('expertsCarousel');
+            const dotsContainer = document.getElementById('expertsDots');
 
-    if (track) {
-        let currentIndex = 0;
-        const slides = document.querySelectorAll('.expert-message-card');
-        const totalSlides = slides.length;
+            if (track) {
+                let currentIndex = 0;
+                const slides = document.querySelectorAll('.expert-message-card');
+                const totalSlides = slides.length;
 
-        if (dotsContainer) {
-            dotsContainer.innerHTML = '';
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('span');
-                dot.classList.add('dot');
-                dot.setAttribute('data-index', i);
-                dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
-                dotsContainer.appendChild(dot);
+                if (dotsContainer) {
+                    dotsContainer.innerHTML = '';
+                    for (let i = 0; i < totalSlides; i++) {
+                        const dot = document.createElement('span');
+                        dot.classList.add('dot');
+                        dot.setAttribute('data-index', i);
+                        dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+
+                const dots = document.querySelectorAll('#expertsDots .dot');
+
+                /* CONTROL: milliseconds delay between automatic slide advances */
+                const EXPERTS_AUTO_DELAY = 10000;
+
+                let expertsTimeout = null;
+                function scheduleExpertsAdvance() {
+                    if (expertsTimeout) clearTimeout(expertsTimeout);
+                    expertsTimeout = setTimeout(() => goToSlide(currentIndex + 1), EXPERTS_AUTO_DELAY);
+                }
+
+                function goToSlide(index) {
+                    currentIndex = (index + totalSlides) % totalSlides;
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+                    scheduleExpertsAdvance();
+                }
+
+                // Create overlay nav buttons inside each slide's image wrapper.
+                // They will be visible only for the currently hovered slide (CSS controls visibility).
+                slides.forEach((slide) => {
+                    const imgWrap = slide.querySelector('.expert-image-wrapper');
+                    if (!imgWrap) return;
+
+                    // PREV button
+                    const prevBtn = document.createElement('button');
+                    prevBtn.type = 'button';
+                    prevBtn.className = 'expert-overlay-nav left';
+                    prevBtn.setAttribute('aria-label', 'Previous expert');
+                    prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                    prevBtn.tabIndex = 0;
+                    prevBtn.setAttribute('aria-hidden', 'false');
+                    console.debug('Created prevBtn for slide', slide);
+                    prevBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        goToSlide(currentIndex - 1);
+                    });
+
+                    // NEXT button
+                    const nextBtn = document.createElement('button');
+                    nextBtn.type = 'button';
+                    nextBtn.className = 'expert-overlay-nav right';
+                    nextBtn.setAttribute('aria-label', 'Next expert');
+                    nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                    nextBtn.tabIndex = 0;
+                    nextBtn.setAttribute('aria-hidden', 'false');
+                    console.debug('Created nextBtn for slide', slide);
+                    nextBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        goToSlide(currentIndex + 1);
+                    });
+
+                    // Append buttons to the image wrapper (positioned overlay)
+                    imgWrap.appendChild(prevBtn);
+                    imgWrap.appendChild(nextBtn);
+
+                    // Toggle overlay visibility on click/touch (useful for mobile where hover isn't available)
+                    imgWrap.addEventListener('click', function (e) {
+                        // if clicking the nav button itself let the button handler manage navigation
+                        if (e.target.closest('.expert-overlay-nav')) return;
+                        // toggle a class that reveals overlay controls
+                        imgWrap.classList.toggle('show-overlay');
+                        console.debug('Toggled show-overlay on wrapper:', imgWrap.classList.contains('show-overlay'));
+                    }, { passive: true });
+                });
+
+                // Delegated click handler: close overlays when clicking outside any wrapper
+                document.addEventListener('click', function (ev) {
+                    const imgWrap = ev.target.closest('.expert-image-wrapper');
+                    if (!imgWrap) {
+                        // clicked outside any wrapper -> close any open overlays
+                        document.querySelectorAll('.expert-image-wrapper.show-overlay').forEach(w => w.classList.remove('show-overlay'));
+                    }
+                    // if clicked inside a wrapper, let the per-wrapper click handler manage toggling
+                });
+
+                // Initialize carousel
+                goToSlide(0);
+
+                // Optional: allow keyboard left/right navigation when carousel has focus
+                track.setAttribute('tabindex', '0');
+                track.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+                    if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
+                });
             }
-        }
-
-        const dots = document.querySelectorAll('#expertsDots .dot');
-
-        /* CONTROL: milliseconds delay between automatic slide advances */
-        const EXPERTS_AUTO_DELAY = 10000;
-
-        let expertsTimeout = null;
-        function scheduleExpertsAdvance() {
-            if (expertsTimeout) clearTimeout(expertsTimeout);
-            expertsTimeout = setTimeout(() => goToSlide(currentIndex + 1), EXPERTS_AUTO_DELAY);
-        }
-
-        function goToSlide(index) {
-            currentIndex = (index + totalSlides) % totalSlides;
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
-            scheduleExpertsAdvance();
-        }
-
-        // Create overlay nav buttons inside each slide's image wrapper.
-        // They will be visible only for the currently hovered slide (CSS controls visibility).
-        slides.forEach((slide) => {
-            const imgWrap = slide.querySelector('.expert-image-wrapper');
-            if (!imgWrap) return;
-
-            // PREV button
-            const prevBtn = document.createElement('button');
-            prevBtn.type = 'button';
-            prevBtn.className = 'expert-overlay-nav left';
-            prevBtn.setAttribute('aria-label', 'Previous expert');
-            prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
-            prevBtn.tabIndex = 0;
-            prevBtn.setAttribute('aria-hidden', 'false');
-            console.debug('Created prevBtn for slide', slide);
-            prevBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                goToSlide(currentIndex - 1);
-            });
-
-            // NEXT button
-            const nextBtn = document.createElement('button');
-            nextBtn.type = 'button';
-            nextBtn.className = 'expert-overlay-nav right';
-            nextBtn.setAttribute('aria-label', 'Next expert');
-            nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
-            nextBtn.tabIndex = 0;
-            nextBtn.setAttribute('aria-hidden', 'false');
-            console.debug('Created nextBtn for slide', slide);
-            nextBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                goToSlide(currentIndex + 1);
-            });
-
-            // Append buttons to the image wrapper (positioned overlay)
-            imgWrap.appendChild(prevBtn);
-            imgWrap.appendChild(nextBtn);
-
-            // Toggle overlay visibility on click/touch (useful for mobile where hover isn't available)
-            imgWrap.addEventListener('click', function (e) {
-                // if clicking the nav button itself let the button handler manage navigation
-                if (e.target.closest('.expert-overlay-nav')) return;
-                // toggle a class that reveals overlay controls
-                imgWrap.classList.toggle('show-overlay');
-                console.debug('Toggled show-overlay on wrapper:', imgWrap.classList.contains('show-overlay'));
-            }, { passive: true });
         });
-
-        // Delegated click handler: close overlays when clicking outside any wrapper
-        document.addEventListener('click', function (ev) {
-            const imgWrap = ev.target.closest('.expert-image-wrapper');
-            if (!imgWrap) {
-                // clicked outside any wrapper -> close any open overlays
-                document.querySelectorAll('.expert-image-wrapper.show-overlay').forEach(w => w.classList.remove('show-overlay'));
-            }
-            // if clicked inside a wrapper, let the per-wrapper click handler manage toggling
-        });
-
-        // Initialize carousel
-        goToSlide(0);
-
-        // Optional: allow keyboard left/right navigation when carousel has focus
-        track.setAttribute('tabindex', '0');
-        track.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
-            if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
-        });
-    }
-});
 
         /* ===== Locations carousel initialization =====
            Ensures slides/track are sized correctly and translates the track so one
@@ -1125,49 +1153,49 @@
         })();
 
         // FAQ accordion — robust delegated handler (replace older .faq-question click code)
-(function initFaqAccordion() {
-    const faqAccordion = document.querySelector('.faq-accordion');
-    if (!faqAccordion) return;
+        (function initFaqAccordion() {
+            const faqAccordion = document.querySelector('.faq-accordion');
+            if (!faqAccordion) return;
 
-    // Ensure all answers start closed
-    faqAccordion.querySelectorAll('.faq-answer').forEach(a => {
-        a.style.maxHeight = null;
-        a.style.overflow = 'hidden';
-    });
+            // Ensure all answers start closed
+            faqAccordion.querySelectorAll('.faq-answer').forEach(a => {
+                a.style.maxHeight = null;
+                a.style.overflow = 'hidden';
+            });
 
-    faqAccordion.addEventListener('click', function (e) {
-        const btn = e.target.closest('.faq-question');
-        if (!btn || !faqAccordion.contains(btn)) return;
+            faqAccordion.addEventListener('click', function (e) {
+                const btn = e.target.closest('.faq-question');
+                if (!btn || !faqAccordion.contains(btn)) return;
 
-        e.preventDefault();
+                e.preventDefault();
 
-        const answer = btn.nextElementSibling;
-        if (!answer) return;
+                const answer = btn.nextElementSibling;
+                if (!answer) return;
 
-        // Close any other open item first
-        faqAccordion.querySelectorAll('.faq-question.active').forEach(otherBtn => {
-            if (otherBtn === btn) return;
-            otherBtn.classList.remove('active');
-            const otherAnswer = otherBtn.nextElementSibling;
-            if (otherAnswer) otherAnswer.style.maxHeight = null;
-            const otherIcon = otherBtn.querySelector('.fa-chevron-down');
-            if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
-        });
+                // Close any other open item first
+                faqAccordion.querySelectorAll('.faq-question.active').forEach(otherBtn => {
+                    if (otherBtn === btn) return;
+                    otherBtn.classList.remove('active');
+                    const otherAnswer = otherBtn.nextElementSibling;
+                    if (otherAnswer) otherAnswer.style.maxHeight = null;
+                    const otherIcon = otherBtn.querySelector('.fa-chevron-down');
+                    if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                });
 
-        // Toggle this one
-        const icon = btn.querySelector('.fa-chevron-down');
-        const isActive = btn.classList.toggle('active');
-        if (isActive) {
-            // open
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-            if (icon) icon.style.transform = 'rotate(180deg)';
-        } else {
-            // close
-            answer.style.maxHeight = null;
-            if (icon) icon.style.transform = 'rotate(0deg)';
-        }
-    }, false);
-})();
+                // Toggle this one
+                const icon = btn.querySelector('.fa-chevron-down');
+                const isActive = btn.classList.toggle('active');
+                if (isActive) {
+                    // open
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                } else {
+                    // close
+                    answer.style.maxHeight = null;
+                    if (icon) icon.style.transform = 'rotate(0deg)';
+                }
+            }, false);
+        })();
     </script>
 </body>
 </html>

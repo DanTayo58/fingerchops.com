@@ -12,7 +12,7 @@
     width: 100%;
     border-radius: 28px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(181, 152, 104, 0.25);
+    border: 1px solid rgba(255, 126, 51, 0.25);
     background: var(--white);
     position: relative;
 }
@@ -42,7 +42,6 @@
 .location-page-cover {
     position: relative;
     background-size: cover;
-    /* nudge background image further to the right for better focal alignment */
     background-position: 100% center;
     background-repeat: no-repeat;
     min-height: 300px;
@@ -68,7 +67,7 @@
     font-weight: 700;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    background: linear-gradient(135deg, var(--gold, #dfa650), #c48e3d);
+    background: linear-gradient(135deg, var(--gold, #ff7e33), #ff8d42);
     color: var(--white, #ffffff);
     padding: 6px 14px;
     border-radius: 50px;
@@ -96,7 +95,7 @@
     flex-direction: column;
     justify-content: space-between;
     background: var(--white);
-    border-left: 1px solid rgba(181, 152, 104, 0.15);
+    border-left: 1px solid rgba(255, 126, 51, 0.18);
     box-sizing: border-box;
 }
 
@@ -108,7 +107,7 @@
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--secondary, #7c5b40);
+    color: var(--secondary, #ff8d42);
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 12px;
@@ -127,7 +126,7 @@
     flex-direction: column;
     gap: 14px;
     padding-top: 25px;
-    border-top: 1px dashed rgba(181, 152, 104, 0.25);
+    border-top: 1px dashed rgba(255, 126, 51, 0.25);
 }
 
 .location-meta {
@@ -139,17 +138,17 @@
     line-height: 1.5;
 }
 
-.location-meta i {
-    font-size: 16px;
-    color: var(--primary, #5c3e21);
-    margin-top: 3px;
-    flex-shrink: 0;
-}
+    .location-meta i {
+        font-size: 16px;
+        color: var(--primary, #ff7e33);
+        margin-top: 3px;
+        flex-shrink: 0;
+    }
 
-.location-meta strong {
-    color: var(--primary-dark, #3d2712);
-    font-weight: 600;
-}
+    .location-meta strong {
+        color: var(--primary-dark, #d95818);
+        font-weight: 600;
+    }
 
 /* Carousel Control Elements */
 .locations-carousel-controls {
@@ -162,8 +161,8 @@
 
 .locations-nav-btn {
     background: var(--white);
-    border: 1px solid rgba(181, 152, 104, 0.3);
-    color: var(--primary, #5c3e21);
+    border: 1px solid rgba(255, 126, 51, 0.3);
+    color: var(--primary, #ff7e33);
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -175,32 +174,32 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.locations-nav-btn:hover {
-    background: var(--primary, #5c3e21);
-    color: var(--white, #ffffff);
-    border-color: var(--primary, #5c3e21);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(92, 62, 33, 0.2);
-}
+    .locations-nav-btn:hover {
+        background: var(--primary, #ff7e33);
+        color: var(--white, #ffffff);
+        border-color: var(--primary, #ff7e33);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(255, 126, 51, 0.3);
+    }
 
 .locations-dots {
     display: flex;
     gap: 10px;
 }
 
-.locations-dots .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(181, 152, 104, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+    .locations-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 126, 51, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
 
-.locations-dots .dot.active {
-    background: var(--primary, #5c3e21);
-    transform: scale(1.3);
-}
+        .locations-dots .dot.active {
+            background: var(--primary, #ff7e33);
+            transform: scale(1.3);
+        }
 
 /* RESPONSIVE HANDLING: Collapse booklet to stacked single cover & detail column */
 @media (max-width: 900px) {
@@ -222,7 +221,7 @@
 
     .location-page-details {
         border-left: none;
-        border-top: 1px solid rgba(181, 152, 104, 0.15);
+        border-top: 1px solid rgba(255, 126, 51, 0.18);
         padding: 25px;
     }
 
@@ -274,7 +273,7 @@
         gap: 10px !important;
     }
 
-    .location-meta i {
-        font-size: 14px !important;
-    }
+        .location-meta i {
+            font-size: 14px !important;
+        }
 }
