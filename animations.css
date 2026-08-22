@@ -114,6 +114,10 @@
     display: block;
 }
 
+.location-cover-overlay .location-badge {
+    color: var(--white, #ffffff) !important;
+}
+
 .location-desc {
     font-size: 15px;
     color: var(--text-dark, #5c4e40);
@@ -155,8 +159,54 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 18px;
     padding: 0 10px;
+    gap: 12px;
+}
+
+.locations-controls-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    max-width: 280px;
+}
+
+.locations-timer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(242, 92, 5, 0.08);
+    border: 1px solid rgba(242, 92, 5, 0.25);
+    color: var(--primary, #f25c05);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+}
+
+    .locations-timer-badge i {
+        font-size: 11px;
+        color: var(--primary, #f25c05);
+    }
+
+.locations-progress-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(242, 92, 5, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.locations-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #1b5e20, #2e7d32, #f25c05);
+    border-radius: 4px;
+    transition: width 0.1s linear;
 }
 
 .locations-nav-btn {
@@ -172,6 +222,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
 }
 
     .locations-nav-btn:hover {
