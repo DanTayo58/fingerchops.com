@@ -10,14 +10,15 @@
     <!-- Open Graph / Social Media -->
     <meta property="og:title" content="Finger Chops Ventures Limited - Since 2009">
     <meta property="og:description" content="Handcrafted breads made with love and tradition. Visit us today!">
-    <meta property="og:image" content="logo.jpeg">
+    <meta property="og:image" content="logo.PNG">
     <meta property="og:url" content="https://fingerchops.com">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    <link rel="icon" type="image/png" href="logo.PNG">
 
     <!-- Preload critical assets -->
-    <link rel="preload" href="logo.jpeg" as="image">
+    <link rel="preload" href="logo.PNG" as="image">
+    <link rel="preload" href="experts/products.png" as="image">
     <link rel="preload" href="bread.jpeg" as="image">
 
     <!-- Font Awesome -->
@@ -40,7 +41,7 @@
     <!-- PRELOADER - PULSING LOGO ONLY, NO SPINNER -->
     <div class="preloader" id="preloader">
         <div class="preloader-inner">
-            <img src="logo.jpeg" alt="Finger Chops Ventures Limited" class="preloader-logo">
+            <img src="logo.PNG" alt="Finger Chops Ventures Limited" class="preloader-logo">
         </div>
     </div>
 
@@ -57,7 +58,7 @@
             <div class="logo">
                 <a href="#home" class="logo-link">
                     <div class="logo-circle">
-                        <img src="logo.jpeg" alt="Finger Chops Ventures Limited" class="logo-img">
+                        <img src="logo.PNG" alt="Finger Chops Ventures Limited" class="logo-img">
                     </div>
                     <div class="logo-text">
                         <h1>Finger Chops</h1>
@@ -68,7 +69,6 @@
 
             <nav class="desktop-nav" id="desktopNav">
                 <ul>
-                    <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">Our Story</a></li>
                     <li><a href="#featured" class="nav-link">Our Products</a></li>
                     <li><a href="#experts" class="nav-link">Our Team</a></li>
@@ -90,12 +90,11 @@
     <nav id="side-menu" class="side-menu">
         <div class="side-menu-header">
             <div class="logo-circle small">
-                <img src="logo.jpeg" alt="Fingerchops" class="side-menu-logo">
+                <img src="logo.PNG" alt="Fingerchops" class="side-menu-logo">
             </div>
             <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
         </div>
         <ul>
-            <li><a href="#home" class="menu-link"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#about" class="menu-link"><i class="fas fa-info-circle"></i> Our Story</a></li>
             <li><a href="#featured" class="menu-link"><i class="fas fa-bread-slice"></i> Our Products</a></li>
             <li><a href="#experts" class="menu-link"><i class="fas fa-users"></i> Our Team</a></li>
@@ -136,21 +135,14 @@
                         <a href="#contact" class="btn btn-secondary"><i class="fas fa-store"></i> Visit Us</a>
                     </div>
                 </div>
-                <div class="hero-image" data-aos="fade-left">
-                    <div class="image-frame floating">
-                        <img src="experts/products.png" alt="Freshly baked artisanal bread" class="bread-image">
-                        <div class="image-badge">
-                            <span class="badge-text">Baked Fresh Daily</span>
-                            <span class="badge-time">Delightful taste</span>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="hero-decoration">
                 <div class="floating-ingredients">
-                    <i class="fas fa-bread-slice" title="Artisanal Bread"></i>
-                    <i class="fas fa-cookie-bite" title="Fresh Cookies"></i>
-                    <i class="fas fa-leaf" title="Fresh & Natural"></i>
+                    <div class="floating-food-item food-bread" title="Artisanal Bread"><i class="fas fa-bread-slice"></i></div>
+                    <div class="floating-food-item food-cookie" title="Fresh Cookies"><i class="fas fa-cookie-bite"></i></div>
+                    <div class="floating-food-item food-wheat" title="Golden Wheat"><i class="fas fa-seedling"></i></div>
+                    <div class="floating-food-item food-egg" title="Pure Ingredients"><i class="fas fa-egg"></i></div>
+                    <div class="floating-food-item food-leaf" title="Fresh & Natural"><i class="fas fa-leaf"></i></div>
                 </div>
             </div>
             <div class="scroll-indicator"><span>Discover</span><div class="mouse"></div></div>
@@ -239,7 +231,7 @@
                     <p class="section-description">Watch a quick video to experience our operational process - from dough to golden loaf</p>
                 </div>
                 <div class="video-wrapper" data-aos="zoom-in">
-                    <video class="tour-video" poster="logo.jpeg" controls>
+                    <video class="tour-video" poster="logo.PNG" controls>
                         <source src="video.mp4" type="video/mp4">
                         Your browser does not support the video tag. Please upgrade to view our baking tour.
                     </video>
@@ -373,7 +365,7 @@
                         </div>
                         <div class="outreach-card-body">
                             <h3>Loaves of Hope</h3>
-                            <p>Every week, we pack up crates of fresh, warm, nutritious Golden Butter bread and deliver them directly to local motherless baby homes, orphanages, and struggling family shelters in and around Warri. To us, feeding the community is a responsibility we carry with absolute pride.</p>
+                            <p>Periodically, we pack up crates of our fresh, warm, delicious loaves and deliver them directly to local motherless baby homes, orphanages, and struggling family shelters in and around Delta State. To us, impacting lives within the community is a responsibility we carry with absolute pride.</p>
                             <div class="outreach-footer-note">
                                 <i class="fas fa-circle"></i> Spreading warmth where it is needed most
                             </div>
@@ -607,7 +599,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-about"><div class="logo-circle small"><img src="logo.jpeg" alt="Finger Chops" class="footer-logo"></div><p>Putting our freshly baked goods on every table of every home in Nigeria.</p><div class="footer-social"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
+                <div class="footer-about"><div class="logo-circle small"><img src="logo.PNG" alt="Finger Chops" class="footer-logo"></div><p>Putting our freshly baked goods on every table of every home in Nigeria.</p><div class="footer-social"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
@@ -923,21 +915,21 @@
             for (let loop = 0; loop < 2; loop++) {
                 breads.forEach((bread, idx) => {
                     html += `
-                                    <div class="bread-item" data-id="${idx}">
-                                        <div class="bread-img-container">
-                                            <img src="${bread.img}" alt="${bread.name}" loading="lazy">
-                                        </div>
-                                        <div class="bread-item-bottom">
-                                            <h3>${bread.name}</h3>
-                                            <button type="button" class="bread-details-btn" aria-label="Toggle details for ${bread.name}">
-                                                <span>Details</span>
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                            <div class="bread-desc-wrapper">
-                                                <p class="bread-desc">${bread.desc}</p>
-                                            </div>
-                                        </div>
-                                    </div>`;
+                                            <div class="bread-item" data-id="${idx}">
+                                                <div class="bread-img-container">
+                                                    <img src="${bread.img}" alt="${bread.name}" loading="lazy">
+                                                </div>
+                                                <div class="bread-item-bottom">
+                                                    <h3>${bread.name}</h3>
+                                                    <button type="button" class="bread-details-btn" aria-label="Toggle details for ${bread.name}">
+                                                        <span>Details</span>
+                                                        <i class="fas fa-chevron-down"></i>
+                                                    </button>
+                                                    <div class="bread-desc-wrapper">
+                                                        <p class="bread-desc">${bread.desc}</p>
+                                                    </div>
+                                                </div>
+                                            </div>`;
                 });
             }
 
