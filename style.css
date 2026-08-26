@@ -24,6 +24,7 @@
     --transition: all 0.5s cubic-bezier(0.22, 0.98, 0.32, 1);
     --transition-snap: all 0.3s ease-out;
     --font-heading: 'Playfair Display', serif;
+    --font-brand: 'Cinzel', 'Playfair Display', serif; /* CONTROL: Vibrant display font for the brand name */
     --font-body: 'Montserrat', sans-serif;
     /* ---------------------------
        CONTROLS (edit these values)
@@ -36,7 +37,7 @@
     */
     --rounded-image-width: 320px; /* CONTROL: change width here */
     --rounded-image-height: 260px; /* CONTROL: change height here (use px for reliable calculation) */
-    --rounded-image-abs-top: -20px; /* CONTROL: negative => image moves up; positive => image moves down */
+    --rounded-image-abs-top: 40px; /* CONTROL: negative => image moves up; positive => image moves down */
     /* Safety padding you can tweak (adds spare space to avoid precise edge overlaps) */
     --rounded-image-safety-pad: 16px; /* CONTROL: extra spacing to add on top of computed height */
     /* ---------------------------------------------------------
@@ -514,16 +515,23 @@ main {
     overflow: visible;
 }
 
+/* ==========================================================================
+   BRAND-NAME (Desktop Hero Heading)
+   - Color: Pure crisp white (#ffffff)
+   - -webkit-text-fill-color: Required by WebKit to override text clipping/gradients
+   - Font: Vibrant display font (--font-brand)
+   ========================================================================== */
 .brand-name {
-    color: #f25c05 !important;
+    font-family: var(--font-brand); /* CONTROL: Vibrant brand typography */
+    color: #ffffff !important; /* CONTROL: Brand name text color (White) */
     background: none !important;
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
-    -webkit-text-fill-color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important; /* CONTROL: Matches text color to override any WebKit gradient clipping */
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.5));
+    letter-spacing: 2px;
+    filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.7));
     display: block;
     line-height: 1;
     margin-bottom: 10px !important;
@@ -1020,6 +1028,10 @@ section {
         line-height: 1.4;
     }
 
+/* ==========================================================================
+   ABOUT STORY PARAGRAPH & SHOW MORE CHEVRON
+   - Line clamp: Set to exactly 10 lines so the show-more chevron is effective
+   ========================================================================== */
 .about-paragraph-wrapper {
     position: relative;
     margin-bottom: 8px;
@@ -1031,7 +1043,7 @@ section {
     line-height: 1.75;
     margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 14;
+    -webkit-line-clamp: 10; /* CONTROL: Exactly 10 lines visible before expanding via chevron */
     -webkit-box-orient: vertical;
     overflow: hidden;
     transition: all 0.4s ease;
@@ -2891,9 +2903,10 @@ section {
         justify-content: center;
         text-align: center;
         background-color: #1a1a1a;
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.85) 100%), url('products.png'), url('products.webp');
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.8) 100%), url('experts/products.png'), url('products.png');
         background-size: cover;
         background-position: center center;
+        background-repeat: no-repeat;
     }
 
     .hero-content {
@@ -2946,14 +2959,20 @@ section {
         color: #ffffff !important;
     }
 
+    /* ==========================================================================
+       BRAND-NAME (Mobile View)
+       - Color: Pure white (#ffffff)
+       - Font: Vibrant display font (--font-brand)
+       ========================================================================== */
     .brand-name {
+        font-family: var(--font-brand); /* CONTROL: Vibrant brand typography on mobile */
         text-align: center;
         display: block;
         margin: 0 auto;
-        color: #ffffff !important;
+        color: #ffffff !important; /* CONTROL: Brand name color set to white on mobile */
         background: none !important;
-        -webkit-text-fill-color: #ffffff !important;
-        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+        -webkit-text-fill-color: #ffffff !important; /* CONTROL: Matches text color on mobile */
+        filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.75));
     }
 
     .brand-suffix {
