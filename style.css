@@ -21,8 +21,8 @@
     --shadow-xl: 0 35px 65px rgba(0, 0, 0, 0.16);
     --glass-bg: rgba(255, 250, 245, 0.95);
     --glass-border: rgba(242, 92, 5, 0.28);
-    --transition: all 0.5s cubic-bezier(0.22, 0.98, 0.32, 1);
-    --transition-snap: all 0.3s ease-out;
+    --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-snap: all 0.2s ease-out;
     --font-heading: 'Playfair Display', serif;
     --font-brand: 'Cinzel', 'Playfair Display', serif; /* CONTROL: Vibrant display font for the brand name */
     --font-body: 'Montserrat', sans-serif;
@@ -202,12 +202,13 @@ main {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 3px;
+    height: 3.5px;
     width: 0%;
-    background: linear-gradient(90deg, #1b5e20, #2e7d32, #111111);
-    z-index: 1200;
-    transition: width 0.1s cubic-bezier(0.1, 0.9, 0.2, 1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(90deg, #1b5e20, #2e7d32, #43a047);
+    z-index: 2000;
+    transition: width 0.05s linear;
+    box-shadow: 0 0 10px rgba(46, 125, 50, 0.7), 0 0 4px rgba(67, 160, 71, 0.5);
+    pointer-events: none;
 }
 
 .header.scrolled {
@@ -1266,7 +1267,7 @@ section {
 
 .experts-carousel-track {
     display: flex;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
     width: max-content;
     will-change: transform;
     transform: translate3d(0, 0, 0);
@@ -1287,22 +1288,20 @@ section {
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(74, 60, 49, 0.09);
     border: 1px solid rgba(255, 126, 51, 0.2);
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, filter 0.4s ease, box-shadow 0.5s ease, border-color 0.4s ease, min-height 0.3s ease;
-    opacity: 0.5;
-    transform: scale(0.93) scaleY(0.86);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
+    opacity: 0.55;
+    transform: scale(0.95) translateZ(0);
     transform-origin: center center;
-    filter: blur(2.5px);
     user-select: none;
     cursor: pointer;
     position: relative;
     z-index: 1;
-    will-change: transform, opacity, filter;
+    will-change: transform, opacity;
 }
 
 .expert-message-card.active-slide {
     opacity: 1 !important;
-    transform: scale(1) scaleY(1) !important;
-    filter: blur(0) !important;
+    transform: scale(1) translateZ(0) !important;
     box-shadow: 0 22px 50px rgba(74, 60, 49, 0.16);
     border-color: rgba(255, 126, 51, 0.4);
     z-index: 5;
@@ -1328,7 +1327,7 @@ section {
     border-radius: 9999px !important;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28) !important;
     pointer-events: auto;
-    transition: left 0.4s ease, top 0.4s ease;
+    transition: left 0.3s ease, top 0.3s ease;
 }
 
 .experts-top-dots .dot {
@@ -1337,10 +1336,25 @@ section {
     border-radius: 9999px !important;
     background: rgba(255, 255, 255, 0.45) !important;
     cursor: pointer;
-    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
     display: inline-block;
     border: none !important;
     transform: none !important;
+    flex-shrink: 0;
+}
+
+.experts-top-dots .dot.is-dot {
+    width: 4px !important;
+    height: 4px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.42) !important;
+}
+
+.experts-top-dots .dot.is-capsule {
+    width: 6px !important;
+    height: 4px !important;
+    border-radius: 9999px !important;
+    background: rgba(255, 255, 255, 0.52) !important;
 }
 
 .experts-top-dots .dot:hover {
@@ -1353,6 +1367,7 @@ section {
     background: #ffffff !important;
     border-radius: 9999px !important;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.8) !important;
+    opacity: 1 !important;
     transform: none !important;
 }
 
@@ -3605,21 +3620,12 @@ section {
     }
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-section {
-    animation: fadeInUp 0.7s ease forwards;
+/* ===== ANIMATION PERFORMANCE OPTIMIZATION ===== */
+[data-aos] {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 /* ===== OUR HEART & OUTREACH ===== */
@@ -4245,10 +4251,25 @@ section {
     border-radius: 9999px !important;
     background: rgba(255, 255, 255, 0.45) !important;
     cursor: pointer;
-    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
     display: inline-block;
     border: none !important;
     transform: none !important;
+    flex-shrink: 0;
+}
+
+.blog-modal-top-dots .dot.is-dot {
+    width: 4px !important;
+    height: 4px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.42) !important;
+}
+
+.blog-modal-top-dots .dot.is-capsule {
+    width: 6px !important;
+    height: 4px !important;
+    border-radius: 9999px !important;
+    background: rgba(255, 255, 255, 0.52) !important;
 }
 
 .blog-modal-top-dots .dot:hover {
@@ -4261,6 +4282,7 @@ section {
     background: #ffffff !important;
     border-radius: 9999px !important;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.8) !important;
+    opacity: 1 !important;
     transform: none !important;
 }
 
@@ -4359,7 +4381,7 @@ section {
 .events-page-hero {
     padding: 140px 20px 70px;
     /* Hero background image placeholder: Uses image with rich dark overlay. Replace 'bread.jpeg' with chosen banner image */
-    background: linear-gradient(180deg, rgba(20, 14, 10, 0.82) 0%, rgba(13, 8, 5, 0.92) 100%), url('experts/wheat.jpeg') center/cover no-repeat;
+    background: linear-gradient(180deg, rgba(20, 14, 10, 0.82) 0%, rgba(13, 8, 5, 0.92) 100%), url('bread.jpeg') center/cover no-repeat;
     position: relative;
     overflow: hidden;
     color: #ffffff;
