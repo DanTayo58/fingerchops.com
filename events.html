@@ -8,7 +8,7 @@
     <meta name="keywords" content="Finger Chops events, bakery news Nigeria, Warri bakery festival, artisanal bakers summit Delta State, community outreach Finger Chops">
     <meta name="author" content="Finger Chops Ventures Limited">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://fingerchopsng.com/events.html">
+    <link rel="canonical" href="https://fingerchops.com/events.html">
     <meta name="theme-color" content="#f25c05">
 
     <!-- Open Graph -->
@@ -16,9 +16,15 @@
     <meta property="og:site_name" content="Finger Chops Ventures Limited">
     <meta property="og:title" content="News &amp; Events | Finger Chops Ventures Limited">
     <meta property="og:description" content="Stay updated with our latest gatherings, product debuts, community festivals, and culinary milestones.">
-    <meta property="og:image" content="https://fingerchopsng.com/bread.jpeg">
-    <meta property="og:url" content="https://fingerchopsng.com/events.html">
+    <meta property="og:image" content="https://fingerchops.com/bread.jpeg">
+    <meta property="og:url" content="https://fingerchops.com/events.html">
     <meta property="og:locale" content="en_NG">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="logo.png" as="image">
 
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -232,7 +238,7 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true, offset: 100 });
+        AOS.init({ duration: 420, once: true, offset: 60, easing: 'ease-out-cubic' });
 
         // Mobile drawer toggling
         const menuToggle = document.getElementById('menuToggle');
@@ -251,15 +257,38 @@
         if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
         if (overlay) overlay.addEventListener('click', toggleMenu);
 
-        // Scroll progress bar
+        // Smooth 60fps scroll progress bar
         const scrollProgressLine = document.getElementById('scrollProgressLine');
-        window.addEventListener('scroll', () => {
-            const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-            if (totalScroll > 0 && scrollProgressLine) {
-                const scrollProgress = (window.pageYOffset / totalScroll) * 100;
-                scrollProgressLine.style.width = scrollProgress + '%';
+        let isEventsScrollTicking = false;
+
+        function updateEventsScrollProgress() {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+            const scrollHeight = Math.max(
+                document.body.scrollHeight, document.documentElement.scrollHeight,
+                document.body.offsetHeight, document.documentElement.offsetHeight,
+                document.body.clientHeight, document.documentElement.clientHeight
+            );
+            const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+            const docHeight = scrollHeight - clientHeight;
+            const scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+            const clamped = Math.min(100, Math.max(0, scrollPercent));
+            if (scrollProgressLine) {
+                scrollProgressLine.style.width = clamped + '%';
             }
-        }, { passive: true });
+            isEventsScrollTicking = false;
+        }
+
+        function onEventsScroll() {
+            if (!isEventsScrollTicking) {
+                isEventsScrollTicking = true;
+                requestAnimationFrame(updateEventsScrollProgress);
+            }
+        }
+
+        window.addEventListener('scroll', onEventsScroll, { passive: true });
+        window.addEventListener('resize', onEventsScroll, { passive: true });
+        document.addEventListener('DOMContentLoaded', updateEventsScrollProgress);
+        updateEventsScrollProgress();
 
         // Scroll-to-top button
         const backToTop = document.getElementById('backToTop');
@@ -300,6 +329,8 @@
                     "We concluded the summit by awarding long-service commendations to our exceptional depot coordinators and logistics partners from Warri, Asaba, and Benin. We extend our deepest gratitude to everyone who attended and to our thousands of customers whose daily breakfast tables inspire everything we bake."
                 ],
                 images: [
+                    "bread.jpeg",
+                    "wheat.jpeg",
                     "bread.jpeg",
                     "wheat.jpeg",
                     "bread.jpeg"
@@ -502,15 +533,43 @@
                 const images = modalActivePost.images || ['bread.jpeg'];
                 const hasMultiple = images.length > 1;
 
-                // Modal displays single clean 100% width slide (No peek) with top-center capsule indicator
+                // Distance-based progressive indicator set:
+                // diff = 0: Active capsule (16px)
+                // |diff| = 1: Immediate neighbor (smaller 6px capsule)
+                // |diff| = 2: Second neighbor (4px dot indicator)
+                // |diff| > 2: Hidden (display: none)
+                // At index 0: exactly 3 indicators show (active, capsule, dot).
+                // At index 1: 4 indicators show (capsule, active, capsule, dot).
+                // When total <= 3: dot indicator does not show at all at middle index.
+                const dotsHtml = images.map((_, idx) => {
+                    const diff = idx - modalCurrentImgIdx;
+                    let shapeClass = '';
+                    let isVisible = false;
+                    let isActive = false;
+
+                    if (diff === 0) {
+                        isVisible = true;
+                        isActive = true;
+                    } else if (Math.abs(diff) === 1) {
+                        isVisible = true;
+                        shapeClass = 'is-capsule';
+                    } else if (Math.abs(diff) === 2) {
+                        isVisible = true;
+                        shapeClass = 'is-dot';
+                    }
+
+                    const activeClass = isActive ? 'active' : '';
+                    const displayStyle = isVisible ? 'display: inline-block;' : 'display: none;';
+                    return `<span class="dot ${shapeClass} ${activeClass}" style="${displayStyle}" data-idx="${idx}" role="button" aria-label="Go to image ${idx + 1}"></span>`;
+                }).join('');
+
+                // Modal displays single clean 100% width slide (No peek) with top-center 5-item capsule indicator
                 modalGallery.innerHTML = `
                     <div class="blog-modal-img-container">
                         <img src="${images[modalCurrentImgIdx]}" alt="${modalActivePost.title}" class="blog-modal-main-img" id="blogModalMainImg">
                         ${hasMultiple ? `
                             <div class="blog-modal-top-dots" role="tablist" aria-label="Story image navigation">
-                                ${images.map((_, idx) => `
-                                    <span class="dot ${idx === modalCurrentImgIdx ? 'active' : ''}" data-idx="${idx}" role="button" aria-label="Go to image ${idx + 1}"></span>
-                                `).join('')}
+                                ${dotsHtml}
                             </div>
                         ` : ''}
                     </div>
