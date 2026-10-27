@@ -2,7 +2,7 @@
 
 .locations-carousel-outer {
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 28px;
     position: relative;
     width: 100%;
 }
@@ -10,54 +10,142 @@
 .locations-carousel-container {
     overflow: hidden;
     width: 100%;
-    border-radius: 28px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(255, 126, 51, 0.25);
-    background: var(--white);
     position: relative;
+    padding: 12px 0 20px;
+    margin: 0;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    --loc-card-gap: -16px;
+}
+
+/* Capsule indicator anchored at top center of active location card image */
+.locations-top-dots {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: rgba(18, 14, 11, 0.58);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+    pointer-events: auto;
+    transition: left 0.4s ease, top 0.4s ease;
+}
+
+.locations-top-dots .dot {
+    width: 6px !important;
+    height: 4px !important;
+    border-radius: 9999px !important;
+    background: rgba(255, 255, 255, 0.45) !important;
+    cursor: pointer;
+    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    border: none !important;
+    transform: none !important;
+}
+
+.locations-top-dots .dot:hover {
+    background: rgba(255, 255, 255, 0.85) !important;
+}
+
+.locations-top-dots .dot.active {
+    width: 16px !important;
+    height: 4px !important;
+    background: #ffffff !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.8) !important;
+    transform: none !important;
 }
 
 .locations-carousel-track {
     display: flex;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    width: 100%;
+    transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+    width: max-content;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    align-items: stretch;
 }
 
-/* Slide item representing 2 Pages side-by-side */
+/* Slide item representing 2 Pages side-by-side with peek */
 .location-slide {
-    flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
+    flex: 0 0 var(--loc-card-width, 640px);
+    width: var(--loc-card-width, 640px);
+    max-width: var(--loc-card-width, 640px);
+    margin-right: var(--loc-card-gap, -16px);
     box-sizing: border-box;
+    will-change: transform, opacity, filter;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, filter 0.4s ease, box-shadow 0.5s ease, border-color 0.4s ease;
+    opacity: 0.5;
+    transform: scale(0.93) scaleY(0.86);
+    transform-origin: center center;
+    filter: blur(2.5px);
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.location-slide.active-slide {
+    opacity: 1 !important;
+    transform: scale(1) scaleY(1) !important;
+    filter: blur(0) !important;
+    z-index: 5;
+    cursor: default;
 }
 
 .location-slide-inner {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    min-height: 440px;
-    background: var(--white);
+    grid-template-columns: 1fr 1.15fr;
+    min-height: 380px;
+    background: #ffffff;
+    border-radius: 9px;
+    border: 1px solid rgba(255, 126, 51, 0.22);
+    box-shadow: 0 10px 28px rgba(74, 60, 49, 0.08);
+    overflow: hidden;
+    height: 100%;
+    box-sizing: border-box;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.location-slide.active-slide .location-slide-inner {
+    box-shadow: 0 18px 45px rgba(74, 60, 49, 0.16);
+    border-color: rgba(255, 126, 51, 0.42);
 }
 
 /* Page 1: Cover featuring Picture & Name of place */
 .location-page-cover {
     position: relative;
     background-size: cover;
-    background-position: 100% center;
+    background-position: center center;
     background-repeat: no-repeat;
-    min-height: 300px;
+    background-color: #231812;
+    min-height: 280px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    overflow: hidden;
 }
 
 .location-cover-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(30, 20, 10, 0.9) 0%, rgba(30, 20, 10, 0.5) 60%, rgba(30, 20, 10, 0.1) 100%);
+    background: linear-gradient(to top, rgba(20, 14, 8, 0.94) 0%, rgba(20, 14, 8, 0.45) 55%, rgba(20, 14, 8, 0.08) 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 35px;
+    padding: 24px 22px;
     box-sizing: border-box;
 }
 
@@ -65,156 +153,138 @@
     align-self: flex-start;
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.1px;
     text-transform: uppercase;
     background: linear-gradient(135deg, var(--gold, #ff7e33), #ff8d42);
-    color: var(--white, #ffffff);
-    padding: 6px 14px;
-    border-radius: 50px;
-    margin-bottom: 15px;
+    color: #ffffff !important;
+    padding: 5px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .location-title {
     font-family: var(--font-heading, "Playfair Display", serif);
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 800;
     line-height: 1.3;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
     margin: 0;
     color: #ffffff !important;
 }
 
 /* Page 2: Details featuring Description and Address */
 .location-page-details {
-    padding: 35px;
+    padding: 26px 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: var(--white);
-    border-left: 1px solid rgba(255, 126, 51, 0.18);
+    background: #ffffff;
+    border-left: 1px solid rgba(255, 126, 51, 0.15);
     box-sizing: border-box;
 }
 
 .location-details-top {
-    margin-bottom: 25px;
+    margin-bottom: 16px;
 }
 
 .location-page-heading {
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--secondary, #ff8d42);
     font-weight: 700;
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     display: block;
 }
 
-.location-cover-overlay .location-badge {
-    color: var(--white, #ffffff) !important;
-}
-
 .location-desc {
-    font-size: 15px;
-    color: var(--text-dark, #5c4e40);
-    line-height: 1.7;
+    font-size: 14px;
+    color: #4a3c31;
+    line-height: 1.65;
     margin: 0;
 }
 
 .location-details-bottom {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    padding-top: 25px;
-    border-top: 1px dashed rgba(255, 126, 51, 0.25);
+    gap: 11px;
+    padding-top: 18px;
+    border-top: 1px dashed rgba(255, 126, 51, 0.22);
 }
 
 .location-meta {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    font-size: 14px;
-    color: var(--text-dark, #3d2712);
-    line-height: 1.5;
+    gap: 10px;
+    font-size: 13px;
+    color: #3d2712;
+    line-height: 1.45;
 }
 
-    .location-meta i {
-        font-size: 16px;
-        color: var(--primary, #ff7e33);
-        margin-top: 3px;
-        flex-shrink: 0;
-    }
+.location-meta i {
+    font-size: 14px;
+    color: var(--primary, #ff7e33);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
 
-    .location-meta strong {
-        color: var(--primary-dark, #d95818);
-        font-weight: 600;
-    }
+.location-meta strong {
+    color: var(--primary-dark, #d95818);
+    font-weight: 600;
+}
 
 /* Carousel Control Elements */
 .locations-carousel-controls {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 18px;
-    padding: 0 10px;
-    gap: 12px;
+    margin-top: 14px;
+    padding: 0 6px;
+    gap: 16px;
 }
 
 .locations-controls-center {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     flex: 1;
-    max-width: 280px;
+    max-width: 260px;
+    text-align: center;
 }
-
-.locations-timer-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(242, 92, 5, 0.08);
-    border: 1px solid rgba(242, 92, 5, 0.25);
-    color: var(--primary, #f25c05);
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.3px;
-}
-
-    .locations-timer-badge i {
-        font-size: 11px;
-        color: var(--primary, #f25c05);
-    }
 
 .locations-progress-track {
     width: 100%;
     height: 4px;
     background: rgba(242, 92, 5, 0.15);
-    border-radius: 4px;
+    border-radius: 9999px;
     overflow: hidden;
     position: relative;
 }
 
 .locations-progress-bar {
     height: 100%;
-    width: 0%;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left center;
+    will-change: transform;
     background: linear-gradient(90deg, #1b5e20, #2e7d32, #f25c05);
-    border-radius: 4px;
-    transition: width 0.1s linear;
+    border-radius: 9999px;
+    transition: none !important;
 }
 
 .locations-nav-btn {
-    background: var(--white);
+    background: #ffffff;
     border: 1px solid rgba(255, 126, 51, 0.3);
     color: var(--primary, #ff7e33);
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -225,106 +295,97 @@
     flex-shrink: 0;
 }
 
-    .locations-nav-btn:hover {
-        background: var(--primary, #ff7e33);
-        color: var(--white, #ffffff);
-        border-color: var(--primary, #ff7e33);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(255, 126, 51, 0.3);
-    }
-
-.locations-dots {
-    display: flex;
-    gap: 10px;
+.locations-nav-btn:hover {
+    background: var(--primary, #ff7e33);
+    color: #ffffff;
+    border-color: var(--primary, #ff7e33);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 126, 51, 0.3);
 }
 
-    .locations-dots .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: rgba(255, 126, 51, 0.3);
-        cursor: pointer;
-        transition: all 0.3s ease;
+/* RESPONSIVE HANDLING: Tablet & Mobile */
+@media (max-width: 900px) {
+    .locations-carousel-container {
+        --loc-card-gap: -12px;
     }
 
-        .locations-dots .dot.active {
-            background: var(--primary, #ff7e33);
-            transform: scale(1.3);
-        }
-
-/* RESPONSIVE HANDLING: Collapse booklet to stacked single cover & detail column */
-@media (max-width: 900px) {
     .location-slide-inner {
         grid-template-columns: 1fr;
         min-height: auto;
     }
 
     .location-page-cover {
-        aspect-ratio: 16/9;
-        min-height: auto;
-        height: auto;
-        max-height: 260px;
+        min-height: 220px;
+        height: 220px;
+        max-height: 240px;
+        border-radius: 9px 9px 0 0;
     }
 
     .location-title {
-        font-size: 20px !important;
+        font-size: 19px !important;
     }
 
     .location-page-details {
         border-left: none;
         border-top: 1px solid rgba(255, 126, 51, 0.18);
-        padding: 25px;
+        padding: 22px 20px;
+        border-radius: 0 0 9px 9px;
     }
 
     .location-cover-overlay {
-        padding: 20px;
+        padding: 20px 18px;
     }
 }
 
 @media (max-width: 480px) {
+    .locations-carousel-container {
+        --loc-card-gap: -8px;
+    }
+
     .location-page-cover {
-        aspect-ratio: 16/10;
-        max-height: 200px;
+        min-height: 190px;
+        height: 190px;
     }
 
     .location-title {
-        font-size: 17px !important;
+        font-size: 16.5px !important;
     }
 
     .location-cover-overlay {
-        padding: 15px;
+        padding: 16px 14px;
     }
 
     .location-badge {
-        font-size: 9px !important;
+        font-size: 9.5px !important;
         padding: 4px 10px !important;
-        margin-bottom: 8px !important;
+        margin-bottom: 7px !important;
     }
 
     .location-page-details {
-        padding: 16px;
+        padding: 16px 14px;
     }
 
     .location-page-heading {
-        font-size: 11px !important;
-        margin-bottom: 8px !important;
+        font-size: 10.5px !important;
+        margin-bottom: 6px !important;
     }
 
     .location-desc {
-        font-size: 13.5px !important;
+        font-size: 13px !important;
+        line-height: 1.55;
     }
 
     .location-details-bottom {
-        gap: 10px !important;
-        padding-top: 16px !important;
+        gap: 9px !important;
+        padding-top: 14px !important;
     }
 
     .location-meta {
-        font-size: 13px !important;
-        gap: 10px !important;
+        font-size: 12.5px !important;
+        gap: 8px !important;
     }
 
-        .location-meta i {
-            font-size: 14px !important;
-        }
+    .location-meta i {
+        font-size: 13px !important;
+    }
 }
