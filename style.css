@@ -4359,7 +4359,7 @@ section {
 .events-page-hero {
     padding: 140px 20px 70px;
     /* Hero background image placeholder: Uses image with rich dark overlay. Replace 'bread.jpeg' with chosen banner image */
-    background: linear-gradient(180deg, rgba(20, 14, 10, 0.82) 0%, rgba(13, 8, 5, 0.92) 100%), url('bread.jpeg') center/cover no-repeat;
+    background: linear-gradient(180deg, rgba(20, 14, 10, 0.82) 0%, rgba(13, 8, 5, 0.92) 100%), url('experts/wheat.jpeg') center/cover no-repeat;
     position: relative;
     overflow: hidden;
     color: #ffffff;
