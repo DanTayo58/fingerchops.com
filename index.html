@@ -526,7 +526,7 @@
                     </div>
                     <div class="expert-message-card">
                         <div class="expert-image-wrapper">
-                            <img src="experts/christabel_etu.jpeg" onerror="this.onerror=null; this.src='bread.jpeg';" alt="Miss. Christabel" class="expert-image">
+                            <img src="experts/christabel_etu.jpg" onerror="this.onerror=null; this.src='bread.jpeg';" alt="Miss. Christabel" class="expert-image">
                             <div class="expert-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
                         </div>
                         <div class="expert-message">
@@ -542,7 +542,7 @@
                     </div>
                     <div class="expert-message-card">
                         <div class="expert-image-wrapper">
-                            <img src="experts/thelma_anene.jpg" onerror="this.onerror=null; this.src='bread.jpeg';" alt="Miss Anene" class="expert-image">
+                            <img src="experts/thelma_anene.jpg.jpg" onerror="this.onerror=null; this.src='bread.jpeg';" alt="Miss Anene" class="expert-image">
                             <div class="expert-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
                         </div>
                         <div class="expert-message">
@@ -894,17 +894,16 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true, offset: 100 });
+        AOS.init({ duration: 420, once: true, offset: 60, easing: 'ease-out-cubic' });
 
         const header = document.getElementById('header');
-        const desktopNav = document.getElementById('desktopNav');
         const scrollProgressLine = document.getElementById('scrollProgressLine');
         const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
+        const mobileLinks = document.querySelectorAll('.side-menu .menu-link');
 
         // Dynamic subsection mapping ensuring sub-sections maintain their parent nav anchor
         function getTrackedSections() {
             return [
-                { id: 'home', el: document.getElementById('home') },
                 { id: 'about', el: document.getElementById('about') },
                 { id: 'about', el: document.querySelector('.journey') },
                 { id: 'about', el: document.querySelector('.video-tour') },
@@ -918,16 +917,24 @@
             ];
         }
 
+        let isScrollTicking = false;
         function updateScrollIndicatorAndNav() {
-            const scrollY = window.scrollY || window.pageYOffset;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+            const scrollHeight = Math.max(
+                document.body.scrollHeight, document.documentElement.scrollHeight,
+                document.body.offsetHeight, document.documentElement.offsetHeight,
+                document.body.clientHeight, document.documentElement.clientHeight
+            );
+            const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+            const docHeight = scrollHeight - clientHeight;
             const scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+            const clampedPercent = Math.min(100, Math.max(0, scrollPercent));
 
             if (scrollProgressLine) {
-                scrollProgressLine.style.width = Math.min(100, Math.max(0, scrollPercent)) + '%';
+                scrollProgressLine.style.width = clampedPercent + '%';
             }
 
-            if (scrollY > 90) {
+            if (scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
@@ -935,7 +942,7 @@
 
             const backToTop = document.getElementById('backToTop');
             if (backToTop) {
-                if (scrollY > 450) {
+                if (scrollY > 380) {
                     backToTop.classList.add('show');
                 } else {
                     backToTop.classList.remove('show');
@@ -943,40 +950,59 @@
             }
 
             // Determine active section based on scroll position
-            let currentSectionId = 'home';
-            const offsetThreshold = 220;
-
-            // If reached the bottom of page, highlight contact
-            if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 70) {
+            let currentSectionId = '';
+            if (scrollY + clientHeight >= scrollHeight - 70) {
                 currentSectionId = 'contact';
-            } else {
+            } else if (scrollY > 200) {
                 const tracked = getTrackedSections();
-                for (let i = 0; i < tracked.length; i++) {
+                const targetScroll = scrollY + 160;
+                for (let i = tracked.length - 1; i >= 0; i--) {
                     const sec = tracked[i];
                     if (sec.el) {
-                        const top = sec.el.offsetTop;
-                        const height = sec.el.offsetHeight;
-                        if (scrollY + offsetThreshold >= top && scrollY + offsetThreshold < top + height) {
+                        const top = sec.el.getBoundingClientRect().top + scrollY;
+                        if (targetScroll >= top) {
                             currentSectionId = sec.id;
                             break;
                         }
                     }
                 }
+                if (!currentSectionId && tracked.length > 0) {
+                    currentSectionId = 'about';
+                }
             }
 
             navLinks.forEach(link => {
                 const target = link.getAttribute('href');
-                if (target === '#' + currentSectionId) {
+                if (currentSectionId && target === '#' + currentSectionId) {
                     link.classList.add('active');
                 } else {
                     link.classList.remove('active');
                 }
             });
+
+            mobileLinks.forEach(link => {
+                const target = link.getAttribute('href');
+                if (currentSectionId && (target === '#' + currentSectionId || target === 'index.html#' + currentSectionId)) {
+                    link.classList.add('active');
+                } else if (target !== 'events.html') {
+                    link.classList.remove('active');
+                }
+            });
+
+            isScrollTicking = false;
         }
 
-        window.addEventListener('scroll', updateScrollIndicatorAndNav, { passive: true });
-        window.addEventListener('resize', updateScrollIndicatorAndNav);
+        function queueScrollUpdate() {
+            if (!isScrollTicking) {
+                isScrollTicking = true;
+                requestAnimationFrame(updateScrollIndicatorAndNav);
+            }
+        }
+
+        window.addEventListener('scroll', queueScrollUpdate, { passive: true });
+        window.addEventListener('resize', queueScrollUpdate, { passive: true });
         document.addEventListener('DOMContentLoaded', updateScrollIndicatorAndNav);
+        updateScrollIndicatorAndNav();
 
         // About Section: Read More toggle logic with centered chevron
         (function initAboutReadMore() {
@@ -1365,26 +1391,33 @@
 
                 const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.dot')) : [];
 
-                // Capsule indicator window: 2 on first, 2 on last, 3 on middle
+                // 5-Item indicator set: [left dot, left capsule, middle capsule, right capsule, right dot]
+                // Distance-based progressive indicator set:
+                // diff = 0: Active capsule (16px)
+                // |diff| = 1: Immediate neighbor (smaller 6px capsule)
+                // |diff| = 2: Second neighbor (4px dot indicator)
+                // |diff| > 2: Hidden (display: none)
+                // When at page 0: 3 indicators show (active, capsule, dot).
+                // When at page 1: 4 indicators show (capsule, active, capsule, dot). Left dot does not show at all.
+                // When total <= 3: dot indicator does not show at all at middle index.
                 function updateExpertDots() {
-                    let visibleIndices = [];
-                    if (totalSlides <= 2) {
-                        visibleIndices = slides.map((_, i) => i);
-                    } else if (currentIndex === 0) {
-                        visibleIndices = [0, 1];
-                    } else if (currentIndex === totalSlides - 1) {
-                        visibleIndices = [totalSlides - 2, totalSlides - 1];
-                    } else {
-                        visibleIndices = [currentIndex - 1, currentIndex, currentIndex + 1];
-                    }
-
                     dots.forEach((dot, i) => {
-                        const isActive = (i === currentIndex);
-                        dot.classList.toggle('active', isActive);
-                        if (visibleIndices.indexOf(i) !== -1) {
+                        const diff = i - currentIndex;
+                        dot.classList.remove('is-dot', 'is-capsule');
+                        if (diff === 0) {
                             dot.style.display = 'inline-block';
+                            dot.classList.add('active');
+                        } else if (Math.abs(diff) === 1) {
+                            dot.style.display = 'inline-block';
+                            dot.classList.remove('active');
+                            dot.classList.add('is-capsule');
+                        } else if (Math.abs(diff) === 2) {
+                            dot.style.display = 'inline-block';
+                            dot.classList.remove('active');
+                            dot.classList.add('is-dot');
                         } else {
                             dot.style.display = 'none';
+                            dot.classList.remove('active');
                         }
                     });
 
@@ -1598,10 +1631,14 @@
                     }
                 });
 
-                // Responsive resize: re-center and update quote clamps
+                // Responsive resize: debounced re-center and update quote clamps to prevent frame drops
+                let expertResizeTimer = null;
                 window.addEventListener('resize', () => {
-                    updateQuoteClamps();
-                    goToSlide(currentIndex);
+                    if (expertResizeTimer) clearTimeout(expertResizeTimer);
+                    expertResizeTimer = setTimeout(() => {
+                        updateQuoteClamps();
+                        goToSlide(currentIndex);
+                    }, 100);
                 });
 
                 // Initialize carousel
@@ -1648,26 +1685,32 @@
 
             const locDots = locDotsContainer ? locDotsContainer.querySelectorAll('.dot') : [];
 
-            // Dynamic capsule window: 2 on edges, 3 in middle
+            // Distance-based progressive indicator set:
+            // diff = 0: Active capsule (16px)
+            // |diff| = 1: Immediate neighbor (smaller 6px capsule)
+            // |diff| = 2: Second neighbor (4px dot indicator)
+            // |diff| > 2: Hidden (display: none)
+            // When at page 0: exactly 3 indicators show (active, capsule, dot).
+            // When at page 1: 4 indicators show (capsule, active, capsule, dot). Left dot does not show at all.
+            // When total <= 3: dot indicator does not show at all at middle index.
             function updateLocDots() {
-                let visibleIndices = [];
-                if (totalLocSlides <= 3) {
-                    visibleIndices = locSlides.map((_, i) => i);
-                } else if (currentLocIndex === 0) {
-                    visibleIndices = [0, 1, 2];
-                } else if (currentLocIndex === totalLocSlides - 1) {
-                    visibleIndices = [totalLocSlides - 3, totalLocSlides - 2, totalLocSlides - 1];
-                } else {
-                    visibleIndices = [currentLocIndex - 1, currentLocIndex, currentLocIndex + 1];
-                }
-
                 locDots.forEach((dot, i) => {
-                    const isActive = (i === currentLocIndex);
-                    dot.classList.toggle('active', isActive);
-                    if (visibleIndices.indexOf(i) !== -1) {
+                    const diff = i - currentLocIndex;
+                    dot.classList.remove('is-dot', 'is-capsule');
+                    if (diff === 0) {
                         dot.style.display = 'inline-block';
+                        dot.classList.add('active');
+                    } else if (Math.abs(diff) === 1) {
+                        dot.style.display = 'inline-block';
+                        dot.classList.remove('active');
+                        dot.classList.add('is-capsule');
+                    } else if (Math.abs(diff) === 2) {
+                        dot.style.display = 'inline-block';
+                        dot.classList.remove('active');
+                        dot.classList.add('is-dot');
                     } else {
                         dot.style.display = 'none';
+                        dot.classList.remove('active');
                     }
                 });
 
@@ -1725,8 +1768,14 @@
             }
 
             function startTimer() {
-                if (locTimer) clearTimeout(locTimer);
-                if (progressAnimFrame) cancelAnimationFrame(progressAnimFrame);
+                if (locTimer) {
+                    clearTimeout(locTimer);
+                    locTimer = null;
+                }
+                if (progressAnimFrame) {
+                    cancelAnimationFrame(progressAnimFrame);
+                    progressAnimFrame = null;
+                }
 
                 slideStartTime = Date.now();
 
@@ -1743,7 +1792,7 @@
                     }
                 }
 
-                renderProgress();
+                progressAnimFrame = requestAnimationFrame(renderProgress);
 
                 locTimer = setTimeout(() => {
                     goToLocSlide(currentLocIndex + 1);
@@ -1751,6 +1800,19 @@
             }
 
             function goToLocSlide(index) {
+                // Immediately cancel existing timer and frame to prevent animation hangs or overlaps
+                if (locTimer) {
+                    clearTimeout(locTimer);
+                    locTimer = null;
+                }
+                if (progressAnimFrame) {
+                    cancelAnimationFrame(progressAnimFrame);
+                    progressAnimFrame = null;
+                }
+                if (locProgressBar) {
+                    locProgressBar.style.transform = 'scaleX(0)';
+                }
+
                 currentLocIndex = (index + totalLocSlides) % totalLocSlides;
                 
                 const container = locTrack.parentElement;
@@ -1801,10 +1863,30 @@
                 }
             });
 
-            // Resize listener to recalculate peek transform accurately
+            // Debounced resize listener to recalculate peek transform accurately without hanging animations
+            let locResizeTimer = null;
             window.addEventListener('resize', () => {
-                updateLocCardDimensions();
-                goToLocSlide(currentLocIndex);
+                if (locResizeTimer) clearTimeout(locResizeTimer);
+                locResizeTimer = setTimeout(() => {
+                    updateLocCardDimensions();
+                    goToLocSlide(currentLocIndex);
+                }, 100);
+            });
+
+            // Pause autoplay timers and animation frames when the tab is hidden to prevent hanging on return
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    if (locTimer) {
+                        clearTimeout(locTimer);
+                        locTimer = null;
+                    }
+                    if (progressAnimFrame) {
+                        cancelAnimationFrame(progressAnimFrame);
+                        progressAnimFrame = null;
+                    }
+                } else {
+                    startTimer();
+                }
             });
 
             // Touch swipe support for mobile and tablets
