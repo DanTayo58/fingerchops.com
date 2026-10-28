@@ -39,7 +39,6 @@
     border-radius: 9999px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
     pointer-events: auto;
-    transition: left 0.4s ease, top 0.4s ease;
 }
 
 .locations-top-dots .dot {
@@ -48,10 +47,25 @@
     border-radius: 9999px !important;
     background: rgba(255, 255, 255, 0.45) !important;
     cursor: pointer;
-    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
     display: inline-block;
     border: none !important;
     transform: none !important;
+    flex-shrink: 0;
+}
+
+.locations-top-dots .dot.is-dot {
+    width: 4px !important;
+    height: 4px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.42) !important;
+}
+
+.locations-top-dots .dot.is-capsule {
+    width: 6px !important;
+    height: 4px !important;
+    border-radius: 9999px !important;
+    background: rgba(255, 255, 255, 0.52) !important;
 }
 
 .locations-top-dots .dot:hover {
@@ -64,12 +78,13 @@
     background: #ffffff !important;
     border-radius: 9999px !important;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.8) !important;
+    opacity: 1 !important;
     transform: none !important;
 }
 
 .locations-carousel-track {
     display: flex;
-    transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
     width: max-content;
     will-change: transform;
     transform: translate3d(0, 0, 0);
@@ -85,12 +100,10 @@
     max-width: var(--loc-card-width, 640px);
     margin-right: var(--loc-card-gap, -16px);
     box-sizing: border-box;
-    will-change: transform, opacity, filter;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, filter 0.4s ease, box-shadow 0.5s ease, border-color 0.4s ease;
-    opacity: 0.5;
-    transform: scale(0.93) scaleY(0.86);
+    transition: opacity 0.38s ease, box-shadow 0.38s ease, border-color 0.3s ease, transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 0.55;
+    transform: scale(0.97) translateZ(0);
     transform-origin: center center;
-    filter: blur(2.5px);
     position: relative;
     z-index: 1;
     cursor: pointer;
@@ -98,8 +111,7 @@
 
 .location-slide.active-slide {
     opacity: 1 !important;
-    transform: scale(1) scaleY(1) !important;
-    filter: blur(0) !important;
+    transform: scale(1) translateZ(0) !important;
     z-index: 5;
     cursor: default;
 }
