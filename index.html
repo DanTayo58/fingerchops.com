@@ -455,6 +455,7 @@
             </div>
 
             <!-- EXPANDED STAGE FOR PEEK DESIGN: Utilizing the extreme ends of the page while keeping the active card perfectly centered -->
+            <!-- I personally changed the extentions to the url where the images really live -->
             <div class="experts-carousel-stage" id="expertsStage" data-aos="fade-up">
                 <!-- Capsule indicator at top center of image -->
                 <div class="experts-top-dots" id="expertsDots" role="tablist" aria-label="Team member slide navigation"></div>
@@ -894,7 +895,10 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 420, once: true, offset: 60, easing: 'ease-out-cubic' });
+        AOS.init({ duration: 550, once: false, offset: 60, easing: 'ease-out-cubic', mirror: false });
+        window.addEventListener('load', function() {
+            if (typeof AOS !== 'undefined') AOS.refresh();
+        });
 
         const header = document.getElementById('header');
         const scrollProgressLine = document.getElementById('scrollProgressLine');
@@ -1933,7 +1937,8 @@
                     preloader.classList.add('hide'); // existing CSS handles fade
                     setTimeout(() => {
                         if (preloader && preloader.parentNode) preloader.parentNode.removeChild(preloader);
-                    }, 700);
+                        if (typeof AOS !== 'undefined') AOS.refresh();
+                    }, 400);
                 } catch (err) {
                     console.error('Preloader hide error:', err);
                 }
