@@ -5,6 +5,8 @@
     margin-bottom: 28px;
     position: relative;
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .locations-carousel-container {
@@ -319,6 +321,7 @@
 @media (max-width: 900px) {
     .locations-carousel-container {
         --loc-card-gap: -12px;
+        --loc-card-width: min(640px, 86vw);
     }
 
     .location-slide-inner {
@@ -352,6 +355,7 @@
 @media (max-width: 480px) {
     .locations-carousel-container {
         --loc-card-gap: -8px;
+        --loc-card-width: min(640px, 88vw);
     }
 
     .location-page-cover {
