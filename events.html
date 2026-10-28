@@ -8,7 +8,7 @@
     <meta name="keywords" content="Finger Chops events, bakery news Nigeria, Warri bakery festival, artisanal bakers summit Delta State, community outreach Finger Chops">
     <meta name="author" content="Finger Chops Ventures Limited">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://fingerchopsng.com/events.html">
+    <link rel="canonical" href="https://fingerchops.com/events.html">
     <meta name="theme-color" content="#f25c05">
 
     <!-- Open Graph -->
@@ -16,8 +16,8 @@
     <meta property="og:site_name" content="Finger Chops Ventures Limited">
     <meta property="og:title" content="News &amp; Events | Finger Chops Ventures Limited">
     <meta property="og:description" content="Stay updated with our latest gatherings, product debuts, community festivals, and culinary milestones.">
-    <meta property="og:image" content="https://fingerchopsng.com/bread.jpeg">
-    <meta property="og:url" content="https://fingerchopsng.com/events.html">
+    <meta property="og:image" content="https://fingerchops.com/bread.jpeg">
+    <meta property="og:url" content="https://fingerchops.com/events.html">
     <meta property="og:locale" content="en_NG">
 
     <!-- Favicon -->
@@ -238,7 +238,10 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 420, once: true, offset: 60, easing: 'ease-out-cubic' });
+        AOS.init({ duration: 550, once: false, offset: 60, easing: 'ease-out-cubic', mirror: false });
+        window.addEventListener('load', function() {
+            if (typeof AOS !== 'undefined') AOS.refresh();
+        });
 
         // Mobile drawer toggling
         const menuToggle = document.getElementById('menuToggle');
@@ -310,32 +313,31 @@
         // =========================================================================
         const blogPosts = [
             {
-                id: "annual-bakers-gathering-2026",
-                title: "Finger Chops Annual Bakers' Summit & Community Festival",
-                category: "Special Event",
-                date: "September 12, 2026",
+                id: "annual-funfair-event-2026",
+                title: "Finger Chops Annual Vendors' Funfair Festival",
+                category: "Funfair Event",
+                date: "June 4, 2026",
                 readTime: "4 min read",
                 author: {
                     name: "Finger Chops Team",
                     role: "Events & Community",
                     avatarText: "FC"
                 },
-                summary: "Finger Chops gathered master bakers, regional distributors, and community patrons to celebrate our continuing journey of excellence, introducing new nutritional grain blends and honoring our long-standing depot coordinators.",
-                quote: "Baking is more than a craft; it is our promise to bring health, nourishment, and joyful family breakfasts across Nigeria every single sunrise.",
+                summary: "Finger Chops gathered our regional distributors, community patrons, and valued partners to celebrate our annual Vendors Funfair, a vibrant event dedicated to appreciating our community and honoring our most regular customer of the year.",
+                quote: "The Vendors Funfair is our way of saying thank you; it is our promise to celebrate the incredible people, shared laughter, and community loyalty that power Finger Chops every single day.",
                 content: [
-                    "On Saturday, September 12, 2026, Finger Chops Ventures Limited hosted our signature Annual Bakers' Summit & Community Festival at our flagship operations center. The landmark gathering brought together over 350 distributors, culinary partners, artisan bakers, and loyal families who have made Finger Chops a household name across Delta, Edo, Ondo, and neighboring states.",
-                    "The event opened with an inspiring address by our executive management team, reflecting on our humble beginnings in 2009 and the milestones that have defined our standard of baking excellence. Attendees enjoyed live operational demonstrations detailing our proprietary fermentation process and hygienic packaging systems that ensure every loaf arrives fresh, fragrant, and soft.",
-                    "A highlight of the day was the exclusive preview of our upcoming Whole Wheat & Multigrain series, formulated with locally sourced Nigerian grains to deliver maximum dietary fiber without compromising on that melt-in-the-mouth texture our customers cherish. Guests participated in sensory tasting sessions, rating texture, aroma, and crust density.",
-                    "We concluded the summit by awarding long-service commendations to our exceptional depot coordinators and logistics partners from Warri, Asaba, and Benin. We extend our deepest gratitude to everyone who attended and to our thousands of customers whose daily breakfast tables inspire everything we bake."
+                    "On Saturday, September 12, 2026, Finger Chops Ventures Limited hosted our signature annual Vendors Funfair at our flagship operations center. The landmark gathering brought together over 350 distributors, culinary partners, and loyal families who have made Finger Chops a household name across Delta, Edo, Ondo, and neighboring states for a day of pure celebration.",
+                    "The festive event was packed with non-stop excitement, high-energy music, and a live DJ keeping the crowd moving. Attendees indulged in a rich variety of delicious food and refreshing drinks, creating an atmosphere filled with vibrant socializing, games, and massive laughs from start to finish.",
+                    "A major highlight of the day was our grand appreciation ceremony. In line with our annual tradition of giving back, Finger Chops used the opportunity to present special gifts to our most cherished and regular customer of the year, handing out an exciting array of diverse gift items that extended far beyond our own standard product lines.",
+                    "We concluded the unforgettable day by coming together for a meaningful closing prayer. Following the prayer, the excitement hit its peak for the ultimate grand finale, where the dance floor came alive and everyone in attendance got the wonderful opportunity to dance alongside the MD/CEO of the company."
                 ],
+                // Using real image URLs
                 images: [
-                    "bread.jpeg",
-                    "wheat.jpeg",
-                    "bread.jpeg",
-                    "wheat.jpeg",
-                    "bread.jpeg"
+                    "events/funfair1.jpeg",
+                    "events/funfair2.jpeg",
+                    "events/funfair3.jpeg"
                 ],
-                tags: ["Community", "Bakers Summit", "Events", "Tradition", "Fresh Bread"]
+                tags: ["Community", "Vendors Funfair", "Events", "Food & Drinks", "Festival"]
             }
             /*
             // =====================================================================
@@ -563,7 +565,31 @@
                     return `<span class="dot ${shapeClass} ${activeClass}" style="${displayStyle}" data-idx="${idx}" role="button" aria-label="Go to image ${idx + 1}"></span>`;
                 }).join('');
 
-                // Modal displays single clean 100% width slide (No peek) with top-center 5-item capsule indicator
+                const existingImg = modalGallery.querySelector('#blogModalMainImg');
+                if (existingImg) {
+                    // Smooth switch without destroying gallery DOM or rebinding listeners
+                    existingImg.src = images[modalCurrentImgIdx];
+                    const dots = modalGallery.querySelectorAll('.blog-modal-top-dots .dot');
+                    dots.forEach((dot, idx) => {
+                        const diff = idx - modalCurrentImgIdx;
+                        dot.classList.remove('active', 'is-capsule', 'is-dot');
+                        if (diff === 0) {
+                            dot.style.display = 'inline-block';
+                            dot.classList.add('active');
+                        } else if (Math.abs(diff) === 1) {
+                            dot.style.display = 'inline-block';
+                            dot.classList.add('is-capsule');
+                        } else if (Math.abs(diff) === 2) {
+                            dot.style.display = 'inline-block';
+                            dot.classList.add('is-dot');
+                        } else {
+                            dot.style.display = 'none';
+                        }
+                    });
+                    return;
+                }
+
+                // Initial render: builds structure once cleanly
                 modalGallery.innerHTML = `
                     <div class="blog-modal-img-container">
                         <img src="${images[modalCurrentImgIdx]}" alt="${modalActivePost.title}" class="blog-modal-main-img" id="blogModalMainImg">
